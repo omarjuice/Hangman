@@ -15,7 +15,7 @@ class WordBlank extends Component {
                 <g className="word-blank" key={i}>
                     <text>
                         <tspan x={x + increment / 2} y={y}
-                            style={{ fontSize: increment > 25 ? 25 : increment }}
+                            style={{ fontSize: increment > 25 ? 25 : increment, fontFamily: '"Play", sans-serif' }}
                             fill={this.props.gameOver && this.props.isCorrect ? 'green' : this.props.gameOver && !this.props.isCorrect ? 'red' : 'black'}
                             textAnchor="middle">
                             {this.props.selectedLetters.includes(word[i]) || this.props.gameOver ? word[i] : '?'}

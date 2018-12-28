@@ -14,7 +14,7 @@ class Letters extends Component {
     renderLetterButtons() {
         return this.props.remainingLetters.map((letter) => {
             return (
-                <p key={letter} onClick={this.props.letterSelected(letter)} className="button letter">{letter}</p>
+                <p key={letter} onClick={this.props.letterSelected(letter)} className="button play letter">{letter}</p>
             )
         })
     }

@@ -9,9 +9,9 @@ html, body, #root{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0
-    
+    margin-right: 0   
 }
+
 .box{
     position: relative;
     border: outset;
@@ -331,5 +331,9 @@ html, body, #root{
     #title{
         font-size: 4rem
        
+    }
+    #join-container .column.is-one-third.has-text-centered{
+      padding: 0;
+      margin-left: 5%;
     }
 }

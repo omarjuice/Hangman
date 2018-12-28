@@ -14,8 +14,8 @@ class UserList extends Component {
                     className="list-item user-list-item has-text-light bold is-size-5">
                     {name}
                     <span className="is-pulled-right">
-                        {name === highestScore ? <span className="icon"><i class="fas fa-crown"></i></span> : null}
-                        {name === this.props.master.name ? <span className="icon"><i class="fas fa-brain"></i></span> : null} {score} points</span>
+                        {name === highestScore ? <span className="icon"><i className="fas fa-crown"></i></span> : null}
+                        {name === this.props.master.name ? <span className="icon"><i className="fas fa-brain"></i></span> : null} {score} points</span>
                 </li>
             )
         })

@@ -24,8 +24,10 @@ class Screen extends Component {
     render() {
         return (
             <div id="hangman" className="column is-9">
-                <div className="box screen has-background-light">
+
+                <div className={`box screen has-background-light`}>
                     <div className="columns is-centered">
+
                         {this.renderScreen()}
                     </div>
                 </div>
@@ -40,7 +42,7 @@ const mapStateToProps = (state) => {
         isChoosing: state.hangman.isChoosing,
         master: state.hangman.master,
         user: state.room.user,
-        gameOver: state.hangman.gameOver
+        gameOver: state.hangman.gameOver,
     }
 }
 

@@ -26,7 +26,7 @@ class JoinForm extends Component {
     }
     render() {
         return (
-            <form id="join-form" onSubmit={this.props.handleSubmit(this.onSubmit)} className="form has-text-centered">
+            <form id="join-form" onSubmit={this.props.handleSubmit(this.onSubmit)} className="form has-text-centered play">
                 <div className="field">
                     <div className="control">
                         <Field name="name" component={this.renderInput} autoFocus={true} label="Enter a username" />

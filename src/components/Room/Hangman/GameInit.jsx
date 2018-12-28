@@ -38,7 +38,7 @@ class GameInit extends Component {
                         <p className="subtitle is-4 has-text-dark">Pick a word, {this.props.master.name}.</p>
                     </div>
                 </div>
-                <div id="word-form" className="column is-two-thirds has-text-centered">
+                <div id="word-form" className="column is-two-thirds has-text-centered play">
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="form has-text-centered">
                         <Field name="word" component={this.renderInput} autoFocus={true} label="Choose a word" />
                         <Field name="hint" component={this.renderInput} autoFocus={false} label="Give them a hint!" />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { newMessageListener } from '../../../actions';
 import MessageForm from './MessageForm';
+import Score from '../Hangman/Score';
 
 class Chat extends Component {
 
@@ -53,6 +54,7 @@ class Chat extends Component {
     render() {
         return (
             <div className="column is-9 is-full-mobile chat-container">
+                <Score />
                 <button onClick={this.props.toggleMenu} className="navbar-burger is-pulled-left has-text-black" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>

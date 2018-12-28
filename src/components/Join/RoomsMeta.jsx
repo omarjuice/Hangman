@@ -8,7 +8,7 @@ class RoomsMeta extends Component {
         return this.props.meta.map((room) => {
             return (
                 <li key={room.name}
-                    className="list-item">
+                    className="list-item play">
                     <p>
                         <em>{room.name}</em>
                         <span className="num">{room.numUsers} {room.numUsers === 1 ? 'user' : 'users'}</span>
