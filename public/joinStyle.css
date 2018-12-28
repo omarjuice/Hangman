@@ -1,0 +1,335 @@
+html, body, #root{
+    height: 100%;
+    background-color: hsl(0, 0%, 21%)
+}
+#join-container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0
+    
+}
+.box{
+    position: relative;
+    border: outset;
+    background-image: url(https://preview.redd.it/vewr28mh54h11.jpg?width=960&crop=smart&auto=webp&s=294040df28930f2aa82bba16cc5e8db6be6c900f);
+    background-size: cover;
+    animation: noise .4s infinite steps(3) alternate-reverse;
+    -webkit-animation: noise .4s infinite steps(3) alternate-reverse;
+    -o-animation: noise .4s infinite steps(3) alternate-reverse;
+    -moz-animation: noise .4s infinite steps(3) alternate-reverse;
+}
+@keyframes noise{
+    0%{background-position: 0 0}
+    20%{background-position: 100px 0}
+    75%{background-position: 100px 100px}
+    100%{background-position: 0 100px}
+}
+@-moz-keyframes noise{
+    0%{background-position: 0 0}
+    20%{background-position: 100px 0}
+    75%{background-position: 100px 100px}
+    100%{background-position: 0 100px}
+}
+@-webkit-keyframes noise{
+    0%{background-position: 0 0}
+    20%{background-position: 100px 0}
+    75%{background-position: 100px 100px}
+    100%{background-position: 0 100px}
+}
+
+@-o-keyframes noise{
+    0%{background-position: 0 0}
+    20%{background-position: 100px 0}
+    75%{background-position: 100px 100px}
+    100%{background-position: 0 100px}
+}
+
+.anton{
+    font-family: 'Anton', sans-serif
+}
+.play{
+  font-family:  'Play', sans-serif
+}
+.list-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.list-item p {
+  width: 95%
+}
+.list-item p .icon{
+  float: right;
+}
+.list-item p em{
+  padding-right: 10px;
+  border-right: 1px solid lightgray;
+  float: left;
+}
+.list-item p .num{
+  padding-left: 10px;
+  float: left
+}
+#title{
+    position: relative;
+    font-size: 5rem
+}
+.card{
+  border: 5px outset silver;
+
+}
+.card .card-content .list{
+  max-height: 75px;
+  overflow: scroll;
+}
+.glitch {
+    position: relative;
+    z-index: 1;
+  }
+  .glitch::before{
+    content: attr(dataText);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 99%;
+    height: 100%;
+    text-shadow: -1px 0 red;
+    clip: rect(30px, 350px, 60px, 0px);
+    animation: glitch-anim-2 1s infinite steps(3) alternate-reverse;
+    -moz-animation: glitch-anim-2 1s infinite steps(3) alternate-reverse;
+    -o-animation: glitch-anim-2 1s infinite steps(3) alternate-reverse;
+    -webkit-animation: glitch-anim-2 1s infinite steps(3) alternate-reverse;
+    z-index: 2;
+  }
+  .glitch::after {
+    content: attr(dataText);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 101%;
+    height: 100%;
+    text-shadow: -1px 0 blue;
+    clip: rect(44px, 350px, 56px, 0px);
+    animation: glitch-anim-1 2s infinite steps(3) alternate-reverse;
+    -moz-animation: glitch-anim-1 2s infinite steps(3) alternate-reverse;
+    -o-animation: glitch-anim-1 2s infinite steps(3) alternate-reverse;
+    -webkit-animation: glitch-anim-1 2s infinite steps(3) alternate-reverse;
+    z-index: 2;
+  }
+  @keyframes glitch-anim-1 {
+    0% {
+      clip: rect(70px, 350px, 76px, 0);
+    }
+    20% {
+      clip: rect(29px, 350px, 16px, 0);
+    }
+    40% {
+      clip: rect(76px, 350px, 3px, 0);
+    }
+    60% {
+      clip: rect(42px, 350px, 78px, 0);
+    }
+    80% {
+      clip: rect(15px, 350px, 13px, 0);
+    }
+    100% {
+      clip: rect(53px, 350px, 5px, 0);
+    }
+  }
+  @-moz-keyframes glitch-anim-1 {
+    0% {
+      clip: rect(70px, 350px, 76px, 0);
+    }
+    20% {
+      clip: rect(29px, 350px, 16px, 0);
+    }
+    40% {
+      clip: rect(76px, 350px, 3px, 0);
+    }
+    60% {
+      clip: rect(42px, 350px, 78px, 0);
+    }
+    80% {
+      clip: rect(15px, 350px, 13px, 0);
+    }
+    100% {
+      clip: rect(53px, 350px, 5px, 0);
+    }
+  }
+  @-o-keyframes glitch-anim-1 {
+    0% {
+      clip: rect(70px, 350px, 76px, 0);
+    }
+    20% {
+      clip: rect(29px, 350px, 16px, 0);
+    }
+    40% {
+      clip: rect(76px, 350px, 3px, 0);
+    }
+    60% {
+      clip: rect(42px, 350px, 78px, 0);
+    }
+    80% {
+      clip: rect(15px, 350px, 13px, 0);
+    }
+    100% {
+      clip: rect(53px, 350px, 5px, 0);
+    }
+  }
+  @-webkit-keyframes glitch-anim-1 {
+    0% {
+      clip: rect(70px, 350px, 76px, 0);
+    }
+    20% {
+      clip: rect(29px, 350px, 16px, 0);
+    }
+    40% {
+      clip: rect(76px, 350px, 3px, 0);
+    }
+    60% {
+      clip: rect(42px, 350px, 78px, 0);
+    }
+    80% {
+      clip: rect(15px, 350px, 13px, 0);
+    }
+    100% {
+      clip: rect(53px, 350px, 5px, 0);
+    }
+  }
+  @keyframes glitch-anim-2 {
+    
+    0% {
+        clip: rect(53px, 350px, 76px, 0);
+      }
+      20% {
+        clip: rect(15px, 350px, 16px, 0);
+      }
+      40% {
+        clip: rect(42px, 350px, 3px, 0);
+      }
+      60% {
+        clip: rect(76px, 350px, 78px, 0);
+      }
+      80% {
+        clip: rect(29px, 350px, 13px, 0);
+      }
+      100% {
+        clip: rect(70px, 350px, 5px, 0);
+      }
+  }
+  @-moz-keyframes glitch-anim-2 {
+    
+    0% {
+        clip: rect(53px, 350px, 76px, 0);
+      }
+      20% {
+        clip: rect(15px, 350px, 16px, 0);
+      }
+      40% {
+        clip: rect(42px, 350px, 3px, 0);
+      }
+      60% {
+        clip: rect(76px, 350px, 78px, 0);
+      }
+      80% {
+        clip: rect(29px, 350px, 13px, 0);
+      }
+      100% {
+        clip: rect(70px, 350px, 5px, 0);
+      }
+  }
+  @-o-keyframes glitch-anim-2 {
+    
+    0% {
+        clip: rect(53px, 350px, 76px, 0);
+      }
+      20% {
+        clip: rect(15px, 350px, 16px, 0);
+      }
+      40% {
+        clip: rect(42px, 350px, 3px, 0);
+      }
+      60% {
+        clip: rect(76px, 350px, 78px, 0);
+      }
+      80% {
+        clip: rect(29px, 350px, 13px, 0);
+      }
+      100% {
+        clip: rect(70px, 350px, 5px, 0);
+      }
+  }
+  @-webkit-keyframes glitch-anim-2 {
+    
+    0% {
+        clip: rect(53px, 350px, 76px, 0);
+      }
+      20% {
+        clip: rect(15px, 350px, 16px, 0);
+      }
+      40% {
+        clip: rect(42px, 350px, 3px, 0);
+      }
+      60% {
+        clip: rect(76px, 350px, 78px, 0);
+      }
+      80% {
+        clip: rect(29px, 350px, 13px, 0);
+      }
+      100% {
+        clip: rect(70px, 350px, 5px, 0);
+      }
+  }
+  .label{
+      border-radius: 10px;
+      box-shadow: 0 2px 2px black
+  }
+  .button{
+    box-shadow: 0 2px 2px black
+  }
+  .fa-spinner{
+    margin-bottom: 20px;
+    animation: spin 1s steps(2) infinite;
+    -webkit-animation: spin 1s steps(2) infinite;
+    -o-animation: spin 1s steps(2) infinite;
+    -moz-animation: spin 1s steps(2) infinite;
+}
+  @keyframes spin {
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(90deg)}
+    50%{transform: rotate(180deg)}
+    75%{transform: rotate(270deg)}
+    100%{transform: rotate(360deg)}
+  }
+  @-webkit-keyframes spin {
+    0%{-webkit-transform: rotate(0deg)}
+    25%{-webkit-transform: rotate(90deg)}
+    50%{-webkit-transform: rotate(180deg)}
+    75%{-webkit-transform: rotate(270deg)}
+    100%{-webkit-transform: rotate(360deg)}
+  }
+  @-o-keyframes spin {
+    0%{-o-transform: rotate(0deg)}
+    25%{-o-transform: rotate(90deg)}
+    50%{-o-transform: rotate(180deg)}
+    75%{-o-transform: rotate(270deg)}
+    100%{-o-transform: rotate(360deg)}
+  }
+  @-moz-keyframes spin {
+    0%{-moz-transform: rotate(0deg)}
+    25%{-moz-transform: rotate(90deg)}
+    50%{-moz-transform: rotate(180deg)}
+    75%{-moz-transform: rotate(270deg)}
+    100%{-moz-transform: rotate(360deg)}
+  }
+@media only screen and (max-width: 1024px){
+
+    #title{
+        font-size: 4rem
+       
+    }
+}
