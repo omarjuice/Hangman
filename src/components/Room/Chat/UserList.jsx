@@ -11,11 +11,11 @@ class UserList extends Component {
         return this.props.users.sort((a, b) => b.score - a.score).map(({ name, id, score }) => {
             return (
                 <li key={id}
-                    className="list-item user-list-item has-text-light bold is-size-5">
+                    className="list-item user-list-item has-text-light bold is-size-5 play">
                     {name}
                     <span className="is-pulled-right">
                         {name === highestScore ? <span className="icon"><i className="fas fa-crown"></i></span> : null}
-                        {name === this.props.master.name ? <span className="icon"><i className="fas fa-brain"></i></span> : null} {score} points</span>
+                        {name === this.props.master.name ? <span className="icon"><i className="fas fa-brain"></i></span> : null} {score} {score === 1 ? 'point' : 'points'}</span>
                 </li>
             )
         })
@@ -24,8 +24,8 @@ class UserList extends Component {
         return (
             <div id="user-list" onClick={this.props.toggleMenu} className="column is-3 is-9-mobile has-background-primary">
                 <aside className="menu">
-                    <p className="menu-label has-text-light has-text-centered title is-3">
-                        <em><strong>{this.props.room}</strong></em>
+                    <p className="menu-label has-text-light has-text-centered title is-3 anton">
+                        <strong>{this.props.room}</strong>
 
                     </p>
 

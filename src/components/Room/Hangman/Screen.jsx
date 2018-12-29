@@ -4,12 +4,19 @@ import { letterListener } from '../../../actions';
 import Waiting from './Waiting';
 import Hangman from './Hangman';
 import GameInit from './GameInit';
+import { newMasterListener } from '../../../actions/index';
 
 class Screen extends Component {
     componentDidMount() {
         this.props.letterListener()
+        this.props.newMasterListener()
     }
-
+    handleScreenClick() {
+        document.querySelector('.fa-comment').classList.remove('is-active')
+        document.querySelector('.messages-container').classList.remove('is-active')
+        document.querySelector('.navbar-burger').classList.remove('is-active')
+        document.querySelector('#user-list').classList.remove('is-active')
+    }
     renderScreen = () => {
         if (this.props.numUsers < 2) {
             return <Waiting />
@@ -24,9 +31,8 @@ class Screen extends Component {
     render() {
         return (
             <div id="hangman" className="column is-9">
-
-                <div className={`box screen has-background-light`}>
-                    <div className="columns is-centered">
+                <div className={`box screen has-background-light`} onClick={this.handleScreenClick}>
+                    <div className="columns is-centered has-text-dark has-text-centered">
 
                         {this.renderScreen()}
                     </div>
@@ -46,4 +52,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { letterListener })(Screen);
+export default connect(mapStateToProps, { letterListener, newMasterListener })(Screen);

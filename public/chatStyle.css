@@ -40,7 +40,7 @@
     flex-direction: column;
     justify-content: center
 }
-em strong{
+.menu-label{
     text-decoration: underline
 }
 .chat-container{
@@ -680,6 +680,20 @@ em strong{
         top: 0px;
     }
 }
+.blink{
+    animation: blink 1s steps(2) infinite;
+}
+@keyframes blink{
+    0%{
+        visibility: visible;
+    }
+    50%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: hidden;
+    }
+}
 .fa-comment.new{
     color: green;
 }
@@ -792,6 +806,7 @@ em strong{
         position: absolute;
         z-index: 10;
     }
+
 }
 @media only screen 
   and (min-width: 1024px) 

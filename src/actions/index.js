@@ -15,7 +15,7 @@ import {
     NEW_MASTER,
     NEW_WORD,
     MY_TURN,
-    NEW_GAME
+
 } from './types';
 import history from '../history';
 ;
@@ -114,7 +114,7 @@ export const joinSuccess = () => (dispatch, getState) => {
         history.push(`/${room}`)
         socket.emit('createMessage', {
             from: 'Admin',
-            text: `Welcome to ${room}, ${name}`,
+            text: `Welcome to ${room}, ${name}!`,
             room: getState().room.roomName
         })
         dispatch({
@@ -216,13 +216,14 @@ export const nextTurnListener = () => (dispatch, getState) => {
     socket.on('nextTurn', (game) => {
         const myName = getState().room.user.name
 
-        if (myName && game.turn.name === myName) {
+        if (myName && game.turn.name && game.turn.name === myName) {
             dispatch({
                 type: MY_TURN,
                 myTurn: true,
                 game
             })
         } else {
+            console.log(game.master.name)
             dispatch({
                 type: MY_TURN,
                 myTurn: false,
@@ -231,18 +232,15 @@ export const nextTurnListener = () => (dispatch, getState) => {
         }
     })
 }
-// export const newGame = () => (dispatch, getState) => {
-//     socket.emit('requestNewGame', getState().room.roomName)
-//     dispatch({
-//         type: 'REQUEST_NEW_GAME'
-//     })
-// }
-export const newGameListener = () => (dispatch, getState) => {
-    socket.on('newGame', game => {
-        dispatch({
-            type: NEW_GAME,
-            game
-        })
-        socket.emit('isItMyTurn', getState().room.roomName)
+export const skipMe = () => (dispatch, getState) => {
+    socket.emit('skipMyTurn', getState().room.roomName)
+    dispatch({
+        type: 'SKIP'
+    })
+}
+export const skipMaster = () => (dispatch, getState) => {
+    socket.emit('skipMaster', getState().room.roomName)
+    dispatch({
+        type: 'SKIP_MASTER'
     })
 }

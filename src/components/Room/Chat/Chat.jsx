@@ -30,7 +30,7 @@ class Chat extends Component {
             let fromLabel = <strong>{fromMe ? 'me' : from}{from === 'Admin' ? <span className="icon"><i className="fas fa-star"></i></span> : ''}</strong>
             let className = fromMe ? 'speech-bubble-right' : 'speech-bubble-left'
             return (<li key={i} className="list-item chat-message">
-                <div className={fromMe ? 'message-sender-right' : 'message-sender-left'}>
+                <div className={fromMe ? 'message-sender-right' : 'message-sender-left play'}>
                     {fromLabel}
                 </div>
                 <div className={className}>
@@ -45,10 +45,10 @@ class Chat extends Component {
         })
     }
     toggleChat = () => {
-        let messageListClass = document.querySelector('.messages-container').classList
-        let messagesIcon = document.querySelector('.fa-comment').classList
-        messageListClass.toggle('is-active');
-        messagesIcon.remove('new')
+        document.querySelector('.messages-container').classList.toggle('is-active');
+        document.querySelector('.fa-comment').classList.remove('new')
+        document.querySelector('.navbar-burger').classList.remove('is-active')
+        document.querySelector('#user-list').classList.remove('is-active')
 
     }
     render() {

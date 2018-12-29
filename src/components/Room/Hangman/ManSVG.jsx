@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Timer from './Timer';
 
 class ManSVG extends Component {
     render() {
@@ -34,8 +35,13 @@ class ManSVG extends Component {
                 </g>
                 < g>
                     <text>
+                        {this.props.myTurn && !this.props.isChoosing && !this.props.gameOver && this.props.master.name ?
+                            <Timer x={width * 5 / 12} y={height * 5 / 12} fontSize={height * .2} textAnchor="middle" svg={true} time={60} />
+                            : null}
+                    </text>
+                    <text>
                         <tspan x={width * .5} y={height * .9} style={{ fill: 'black', fontSize: height * .1 }} textAnchor="middle">
-                            {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.currentTurn === this.props.user ? `Your turn, ${this.props.user}!` : `Waiting for ${this.props.currentTurn}...` : null}
+                            {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.myTurn ? `Your turn, ${this.props.user}!` : `Waiting for ${this.props.currentTurn}...` : null}
                         </tspan>
                     </text>
                 </g>
@@ -49,7 +55,10 @@ const mapStateToProps = (state) => {
         currentTurn: state.hangman.turn.name,
         user: state.room.user.name,
         master: state.hangman.master,
-        isChoosing: state.hangman.isChoosing
+        isChoosing: state.hangman.isChoosing,
+        myTurn: state.hangman.myTurn,
+        gameOver: state.hangman.gameOver,
+        skip: state.hangman.skip
     }
 }
 export default connect(mapStateToProps)(ManSVG);

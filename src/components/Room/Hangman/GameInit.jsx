@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { newWord } from '../../../actions'
+import Timer from './Timer';
 class GameInit extends Component {
 
     getHeading = () => {
@@ -35,9 +36,11 @@ class GameInit extends Component {
                 <div id="word-form-header" className="column is-one-third">
                     <div className="has-text-centered">
                         {this.getHeading()}
-                        <p className="subtitle is-4 has-text-dark">Pick a word, {this.props.master.name}.</p>
+                        <p className="subtitle is-4 has-text-dark">Pick a word, <span className="has-text-primary">{this.props.master.name}</span>.</p>
+                        <Timer time={60} masterTimer={true} />
                     </div>
                 </div>
+
                 <div id="word-form" className="column is-two-thirds has-text-centered play">
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="form has-text-centered">
                         <Field name="word" component={this.renderInput} autoFocus={true} label="Choose a word" />

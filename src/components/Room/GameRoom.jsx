@@ -8,6 +8,8 @@ import { newMasterListener, wordSetListener } from '../../actions/index';
 const toggleMenu = () => {
     document.querySelector('.navbar-burger').classList.toggle('is-active')
     document.querySelector('#user-list').classList.toggle('is-active')
+    document.querySelector('.fa-comment').classList.remove('is-active')
+    document.querySelector('.messages-container').classList.remove('is-active')
 }
 class ChatRoom extends Component {
     componentDidMount() {

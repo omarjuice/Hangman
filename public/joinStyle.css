@@ -65,10 +65,13 @@ html, body, #root{
 .list-item p .icon{
   float: right;
 }
-.list-item p em{
+.list-item p em, .list-item p strong{
   padding-right: 10px;
   border-right: 1px solid lightgray;
   float: left;
+}
+.list-item p strong{
+  padding-left: 10px
 }
 .list-item p .num{
   padding-left: 10px;
