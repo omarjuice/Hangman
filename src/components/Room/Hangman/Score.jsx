@@ -4,7 +4,7 @@ import { hangmanAnimation as animate } from '../../../animations';
 class Score extends Component {
 
     state = {
-        scorePlus: null,
+        scoreVal: null,
         timeout: null
     }
     getUserScore = () => {
@@ -12,33 +12,55 @@ class Score extends Component {
             return this.props.user.score
         }
     }
-    componentDidUpdate({ user }) {
+    componentDidUpdate({ user, incorrect }) {
+
         if (user) {
             let scoreIncrease = this.getUserScore() - user.score
-            let scorePlus = scoreIncrease > 0 ? `+${scoreIncrease}` : null
-
-            return this.state.scorePlus !== scorePlus && !this.state.timeout ? this.setState({
-                scorePlus,
-                timeout: setTimeout(() => {
-                    this.setState({
-                        timeout: null
-                    })
-                }, 1000)
-            }, () => {
-                animate.slideInAndFade('#score')
-            }) : null
+            let scoreVal = scoreIncrease > 0 ? `+${scoreIncrease}` : null
+            if (scoreVal) {
+                this.setState({
+                    scoreVal,
+                    timeout: setTimeout(() => {
+                        this.setState({
+                            timeout: null,
+                            scoreVal: null
+                        })
+                    }, 1000)
+                }, () => {
+                    animate.slideInAndFade('#score')
+                })
+            }
         }
+        if (typeof incorrect === 'number' && typeof this.props.incorrect === 'number' && incorrect !== 5) {
+            let scoreVal = this.props.incorrect - incorrect > 0 ? `X` : null
+            if (scoreVal && this.state.scoreVal) {
+                this.setState({
+                    scoreVal,
+                    timeout: setTimeout(() => {
+                        this.setState({
+                            timeout: null,
+                            scoreVal: null
+                        })
+                    }, 1000)
+                }, () => {
+                    animate.slideInAndFade('#score')
+                })
+            }
+
+        }
+
     }
     render() {
         return (
-            <p id="score" className="has-text-success bold anton is-size-4">{this.state.scorePlus ? <span>{this.state.scorePlus}</span> : null}</p>
+            <p id="score" className={`has-text-${this.state.scoreVal === 'X' ? 'danger' : 'success'} bold anton is-size-2`}>{this.state.scoreVal ? <span>{this.state.scoreVal}</span> : null}</p>
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        user: state.room.users.filter((user) => user.name === state.room.user.name)[0]
+        user: state.room.users.filter((user) => user.name === state.room.user.name)[0],
+        incorrect: state.hangman.incorrect
     }
 }
 

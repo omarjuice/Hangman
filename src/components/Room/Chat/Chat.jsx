@@ -66,7 +66,7 @@ class Chat extends Component {
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </button>
-                <p onClick={this.toggleChat} id="chat-button"><span className="icon has-text-dark"><i className="fas fa-comment fa-lg fa-flip-horizontal new"></i></span></p>
+                <p onClick={this.toggleChat} id="chat-button"><span className="icon has-text-dark"><i className="fas fa-comment fa-lg new"></i></span></p>
                 <ul className="messages-container list has-background-dark">
                     {/* <li className="list-item"></li>
                     <li className="list-item"></li>

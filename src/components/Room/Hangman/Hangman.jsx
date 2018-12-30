@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { nextTurnListener } from '../../../actions';
 import Loader from '../../Loader';
 import { hangmanAnimation as animate } from '../../../animations';
-import Ellipsis from '../../SVG/Ellipsis';
 
 class Hangman extends Component {
     componentDidMount() {

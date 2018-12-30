@@ -101,7 +101,7 @@ export const hangmanAnimation = {
     slideInAndFade: (elem) => {
         return anime({
             targets: elem,
-            translateY: [{ value: ['+=40', -20], duration: 1000, easing: 'linear' }],
+            translateY: [{ value: ['+=80', 0], duration: 1000, easing: 'linear' }],
             opacity: [{ value: ['*=0', 1, 1, 0], duration: 1000, easing: 'linear' }]
         })
     },
@@ -130,8 +130,8 @@ export const chatAnimation = {
         return anime({
             targets: elem,
             scale: [
-                { value: 2, duration: 333, elasticity: 1000 },
-                { value: 1, duration: 333, elasticity: 1000 }
+                { value: 2, duration: 333, elasticity: 1000, easing: 'easeOutCubic' },
+                { value: 1, duration: 333, elasticity: 1000, easing: 'easeInCubic' }
             ]
         })
     }
