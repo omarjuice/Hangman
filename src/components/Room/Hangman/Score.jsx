@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { hangmanAnimation as animate } from '../../../animations';
 class Score extends Component {
 
     state = {
         scorePlus: null,
         timeout: null
     }
-
     getUserScore = () => {
         if (this.props.user) {
             return this.props.user.score
@@ -24,6 +24,8 @@ class Score extends Component {
                         timeout: null
                     })
                 }, 1000)
+            }, () => {
+                animate.slideInAndFade('#score')
             }) : null
         }
     }

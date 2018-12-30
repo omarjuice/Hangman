@@ -5,11 +5,14 @@ import Waiting from './Waiting';
 import Hangman from './Hangman';
 import GameInit from './GameInit';
 import { newMasterListener } from '../../../actions/index';
+import { hangmanAnimation as animate } from '../../../animations';
 
 class Screen extends Component {
     componentDidMount() {
         this.props.letterListener()
         this.props.newMasterListener()
+        animate.turnOn('.screen')
+        animate.flicker('.screen')
     }
     handleScreenClick() {
         document.querySelector('.fa-comment').classList.remove('is-active')

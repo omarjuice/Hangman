@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { skipMe, skipMaster } from '../../../actions';
+import { skipMe, skipMaster } from '../../actions';
+import { hangmanAnimation as animate } from '../../animations';
 
 class Timer extends Component {
     state = {
@@ -8,10 +9,18 @@ class Timer extends Component {
         timer: null
     }
     componentDidMount() {
+
         this.setState({
             time: this.props.time,
             timer: this.getTimer()
+        }, () => {
+
         })
+    }
+    componentDidUpdate() {
+        if (this.state.time && this.state.time < 6) {
+            animate.blink('.blink')
+        }
     }
     getTimer() {
         return setInterval(() => {
@@ -41,10 +50,10 @@ class Timer extends Component {
     render() {
         let renderedTimer = this.props.svg ?
             <tspan x={this.props.x} y={this.props.y}
-                className={this.state.time < 5 ? 'blink' : ''}
+                className="blink"
                 style={{ fill: this.state.time < 10 ? 'red' : 'black', fontFamily: '"Play", sans-serif', fontSize: this.props.fontSize }}
                 textAnchor={this.props.textAnchor} >{this.state.time}</tspan>
-            : <span className={`is-size-3 play ${this.state.time <= 6 ? 'blink' : ''}`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
+            : <span className={`is-size-3 play blink`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
         return (
             renderedTimer
         );

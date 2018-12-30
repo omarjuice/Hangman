@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { newWord } from '../../../actions'
-import Timer from './Timer';
+import Timer from '../../SVG/Timer';
+import { hangmanAnimation as animate } from '../../../animations';
 class GameInit extends Component {
-
+    componentDidMount() {
+        animate.changeScreen('.screen')
+    }
     getHeading = () => {
         if (this.props.word.length > 2) {
             return (

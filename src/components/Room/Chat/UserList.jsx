@@ -22,7 +22,7 @@ class UserList extends Component {
     }
     render() {
         return (
-            <div id="user-list" onClick={this.props.toggleMenu} className="column is-3 is-9-mobile has-background-primary">
+            <div id="user-list" onClick={this.props.toggleMenu} className="column is-3 is-9-mobile">
                 <aside className="menu">
                     <p className="menu-label has-text-light has-text-centered title is-3 anton">
                         <strong>{this.props.room}</strong>

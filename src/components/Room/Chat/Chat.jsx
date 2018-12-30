@@ -3,21 +3,26 @@ import { connect } from 'react-redux';
 import { newMessageListener } from '../../../actions';
 import MessageForm from './MessageForm';
 import Score from '../Hangman/Score';
-
+import { chatAnimation as animate } from '../../../animations';
 class Chat extends Component {
 
 
     componentDidMount() {
         this.props.newMessageListener()
     }
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         const messages = document.querySelectorAll('.chat-message')
 
         if (messages.length > 0) {
             const last = messages[messages.length - 1]
             last.scrollIntoView()
         }
-
+        if (this.props.chat.messages.length > prevProps.chat.messages.length) {
+            animate.inflate('.new')
+        }
+        for (let i = this.props.chat.messages.length - 1; i > prevProps.chat.messages.length - 1; i--) {
+            animate.slideIn(`#message-${i}`, this.props.chat.messages[i].from === this.props.user.name ? 'right' : 'left')
+        }
     }
     renderMessages() {
         let messagesList = document.querySelector('.messages-container')
@@ -29,7 +34,8 @@ class Chat extends Component {
             let fromMe = from === name
             let fromLabel = <strong>{fromMe ? 'me' : from}{from === 'Admin' ? <span className="icon"><i className="fas fa-star"></i></span> : ''}</strong>
             let className = fromMe ? 'speech-bubble-right' : 'speech-bubble-left'
-            return (<li key={i} className="list-item chat-message">
+
+            return (<li key={i} id={`message-${i}`} className={`list-item chat-message`}>
                 <div className={fromMe ? 'message-sender-right' : 'message-sender-left play'}>
                     {fromLabel}
                 </div>

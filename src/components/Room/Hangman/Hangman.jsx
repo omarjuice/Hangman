@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import ManSVG from './ManSVG';
+import ManSVG from '../../SVG/ManSVG';
 import WordBlank from './WordBlank';
 import Letters from './Letters';
 import { connect } from 'react-redux';
 import { nextTurnListener } from '../../../actions';
 import Loader from '../../Loader';
+import { hangmanAnimation as animate } from '../../../animations';
+import Ellipsis from '../../SVG/Ellipsis';
 
 class Hangman extends Component {
     componentDidMount() {
         this.props.nextTurnListener()
+        animate.changeScreen('.screen')
     }
     render() {
         return (
