@@ -4,9 +4,13 @@ import { connect } from 'react-redux';
 import Ellipsis from '../../SVG/Ellipsis';
 import { hangmanAnimation as animate } from '../../../animations';
 
+
 class Waiting extends Component {
     componentDidMount() {
+        animate.turnOn('.screen')
         animate.changeScreen('.screen')
+
+
     }
     render() {
         return (

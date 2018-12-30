@@ -136,13 +136,41 @@ export const chatAnimation = {
         })
     }
 }
-export const general = {
-    // spin: (elem) => {
-    //     return anime({
-    //         targets: elem,
-    //         rotate: ['0turn', '.165turn', '.33turn', '.5turn', '.67turn', '.83turn', '1turn'],
-    //         duration: 2000,
-    //         easing: 'linear'
-    //     })
-    // }
+
+export const svgAnimation = {
+    fall: (elem, path, delay = 0) => {
+        const track = anime.path(path);
+        try {
+            return anime({
+                targets: elem,
+                translateY: track('y'),
+                duration: 500,
+                easing: 'easeInQuad',
+                delay
+            })
+        } catch (e) {
+
+        }
+    },
+    wave: (elem, path, loop = true, autoplay = true, { direction, delay, duration, easing, elasticity } = {}) => {
+        const track = anime.path(path);
+        const obj = {
+            targets: elem,
+            y2: track('y'),
+            x2: track('x'),
+            duration: duration || 1000,
+            delay: delay !== undefined ? delay : 0,
+            loop,
+            direction: direction || 'normal',
+            autoplay,
+
+        }
+        if (elasticity) {
+            obj.elasticity = elasticity
+        }
+        if (easing) {
+            obj.easing = easing
+        }
+        return anime(obj)
+    }
 }

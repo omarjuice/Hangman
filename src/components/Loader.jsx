@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import { general as animate } from '../animations';
 
 class Loader extends Component {
-    componentDidMount() {
-        // animate.spin('.fa-spinner')
-    }
+
     render() {
         return (
             <div>

@@ -223,7 +223,6 @@ export const nextTurnListener = () => (dispatch, getState) => {
                 game
             })
         } else {
-            console.log(game.master.name)
             dispatch({
                 type: MY_TURN,
                 myTurn: false,

@@ -47,6 +47,9 @@ class Timer extends Component {
             }
         }, 1000)
     }
+    componentWillUnmount() {
+        clearInterval(this.state.timer)
+    }
     render() {
         let renderedTimer = this.props.svg ?
             <tspan x={this.props.x} y={this.props.y}

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { homepageAnimation as animate } from '../../animations';
 
 class Title extends Component {
-    // renderSVG(){
-    //     const svgArr = [];
-    // }
+
     componentDidMount() {
         animate.glitch('#title')
     }
