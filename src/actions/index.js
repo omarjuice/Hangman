@@ -1,14 +1,13 @@
 import io from 'socket.io-client';
-import axios from 'axios';
 import {
     CONNECT,
     DISCONNECT,
     NEW_MESSAGE,
-    CREATE_MESSAGE,
     ERROR,
     LOADING,
     CANCEL_LOAD,
     UPDATE_LIST,
+    ASK_FOR_DICT,
     NEW_USER,
     META_DATA,
     LETTER_SELECTED,
@@ -26,13 +25,14 @@ export const bootServer = () => dispatch => {
     dispatch({
         type: LOADING
     })
-    return axios.get('http://localhost:3001/')
-        .then(() => {
 
-        }).catch(() => {
-            dispatch({
-                type: CANCEL_LOAD
-            })
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3001/', true);
+
+    request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+
+        } else {
             dispatch({
                 type: ERROR,
                 error: {
@@ -40,7 +40,25 @@ export const bootServer = () => dispatch => {
                     message: 'Server error'
                 }
             })
+            dispatch({
+                type: CANCEL_LOAD
+            })
+        }
+    };
+    request.onerror = function () {
+        dispatch({
+            type: ERROR,
+            error: {
+                exists: true,
+                message: 'Server error'
+            }
         })
+        dispatch({
+            type: CANCEL_LOAD
+        })
+    };
+
+    request.send();
 }
 export const serverError = () => dispatch => {
     dispatch({
@@ -69,7 +87,7 @@ export const createMessage = (text) => (dispatch, getState) => {
         text
     })
     dispatch({
-        type: CREATE_MESSAGE
+        type: 'CREATE_MESSAGE'
     })
 }
 export const newMessageListener = () => dispatch => {
@@ -87,7 +105,7 @@ export const initiateJoin = ({ name, room }) => dispatch => {
             type: ERROR,
             error: {
                 exists: true,
-                message: err
+                message: err.message
             }
         })
         dispatch({
@@ -98,8 +116,29 @@ export const initiateJoin = ({ name, room }) => dispatch => {
         type: LOADING
     })
 }
+export const askForDictListener = () => dispatch => {
+    socket.on('askForDict', ({ name, room }) => {
+        dispatch({
+            type: ASK_FOR_DICT,
+            room, name, dictionary: 'None'
+        })
+        dispatch({
+            type: CANCEL_LOAD
+        })
+    })
+}
+export const submitDict = (dictionary) => (dispatch, getState) => {
+    socket.emit('join', {
+        name: getState().room.user.name,
+        room: getState().room.roomName,
+        dictionary
+    })
+    dispatch({
+        type: LOADING
+    })
+}
 export const joinSuccess = () => (dispatch, getState) => {
-    socket.on('joinSuccess', ({ name, room, id, score }) => {
+    socket.on('joinSuccess', ([{ name, room, id, score }, dictionary]) => {
 
         dispatch({
             type: CANCEL_LOAD
@@ -109,7 +148,8 @@ export const joinSuccess = () => (dispatch, getState) => {
             user: {
                 name, id, score
             },
-            room: room
+            room,
+            dictionary
         })
         history.push(`/${room}`)
         socket.emit('createMessage', {
@@ -118,7 +158,7 @@ export const joinSuccess = () => (dispatch, getState) => {
             room: getState().room.roomName
         })
         dispatch({
-            type: CREATE_MESSAGE
+            type: 'CREATE_MESSAGE'
         })
     })
 

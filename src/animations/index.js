@@ -31,14 +31,13 @@ export const homepageAnimation = {
             return anime.timeline().add({
                 targets: `${elem}-secondary`,
                 translateX: .5 * i,
-                translateY: .5 * i,
+
                 duration: 250,
             }).add({
                 targets: `${elem}-tertiary`,
                 translateX: -.5 * i,
-                translateY: -.5 * i,
+
                 duration: 250,
-                offset: '-=100',
                 complete: () => {
                     i *= -1;
                     repeatGlitch()
@@ -59,6 +58,16 @@ export const homepageAnimation = {
             translateY: [{ value: [0, 200], duration: 1000, elasticity: 500 }],
         })
     },
+    pop: (elem) => {
+        console.log(elem);
+        return anime({
+            targets: elem,
+            scale: 1.1,
+            duration: 250,
+            autoplay: false,
+            easing: 'easeInOutBack'
+        })
+    }
 
 }
 export const hangmanAnimation = {

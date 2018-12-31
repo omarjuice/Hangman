@@ -85,7 +85,8 @@ const mapStateToProps = (state) => {
         word: state.hangman.word.join(''),
         gameOver: state.hangman.gameOver,
         master: state.hangman.master,
-        user: state.room.user
+        user: state.room.user,
+        hasFreeDict: state.room.dictionary === 'Free'
     }
 }
 export default connect(mapStateToProps, { newWord })(GameInitForm);

@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "animejs": "^2.2.0",
-    "axios": "^0.18.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

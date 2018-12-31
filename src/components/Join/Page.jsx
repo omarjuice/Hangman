@@ -2,18 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import JoinForm from './JoinForm';
 import Loader from '../Loader';
-import { joinSuccess, errorListener, getUserMetaData } from '../../actions/index';
+import { joinSuccess, errorListener, getUserMetaData, askForDictListener } from '../../actions';
 import ErrorMessage from '../ErrorMessage';
 import RoomsMeta from './RoomsMeta';
 import { homepageAnimation as animate } from '../../animations';
 import Title from '../SVG/Title';
+import DictionaryForm from './DictionaryForm';
 
 class JoinPage extends Component {
     state = {
         selectedRoom: ''
     }
+    componentDidMount() {
+        document.querySelector('title').textContent = 'Join | Hangman'
+        document.getElementById('css-load').setAttribute('href', "joinStyle.css")
+        this.props.joinSuccess()
+        this.props.errorListener()
+        this.props.askForDictListener()
+        this.props.getUserMetaData()
+        animate.noise('.noise')
+    }
     onRoomClick(room) {
-
         return () => {
             this.setState({
                 selectedRoom: room
@@ -23,13 +32,7 @@ class JoinPage extends Component {
         }
 
     }
-    componentDidMount() {
-        document.getElementById('css-load').setAttribute('href', "joinStyle.css")
-        this.props.joinSuccess()
-        this.props.errorListener()
-        this.props.getUserMetaData()
-        animate.noise('.noise')
-    }
+
     render() {
         return (
             <div id="join-container" className="columns is-centered">
@@ -42,8 +45,9 @@ class JoinPage extends Component {
 
                     <div className="box noise">
                         <div className="columns is-centered">
-                            <div className="column is-four-fifths">
-                                <JoinForm initialValues={{ room: this.state.selectedRoom }} />
+                            <div className={!this.props.dictionary ? "column is-four-fifths" : "column is-two-thirds"}>
+                                {/* <DictionaryForm /> */}
+                                {!this.props.dictionary ? <JoinForm initialValues={{ room: this.state.selectedRoom }} /> : <DictionaryForm />}
                             </div>
                         </div>
                     </div>
@@ -55,7 +59,8 @@ class JoinPage extends Component {
 const mapStateToProps = (state) => {
     return {
         error: state.error,
-        loading: state.loading
+        loading: state.loading,
+        dictionary: state.room.dictionary
     }
 }
-export default connect(mapStateToProps, { joinSuccess, errorListener, getUserMetaData })(JoinPage);
+export default connect(mapStateToProps, { joinSuccess, errorListener, getUserMetaData, askForDictListener })(JoinPage);

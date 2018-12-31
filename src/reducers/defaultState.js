@@ -6,7 +6,8 @@ export default {
     room: {
         roomName: '',
         user: {},
-        users: []
+        users: [],
+        dictionary: false,
     },
     error: {
         exists: false,
