@@ -240,7 +240,7 @@ export const newMasterListener = () => dispatch => {
 export const newWord = ({ word, hint }) => (dispatch, getState) => {
     socket.emit('newWord', { word, hint, room: getState().room.roomName })
     dispatch({
-        type: 'WORD_CHOSEN',
+        type: 'WORD_CHOSEN'
     })
 }
 export const wordSetListener = () => (dispatch, getState) => {

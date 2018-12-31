@@ -75,7 +75,7 @@ class DictionaryForm extends Component {
                             <img id="Urban-logo" src="./images/Urbanlogo.png" alt="Urban Dictionary" />
                         </figure>
                     </label>
-                    <label id="free-label" className="label dict-label has-background-dark is-size-1 anton">
+                    <label id="free-label" className="label dict-label has-background-dark is-size-1 is-size-3-mobile anton">
                         <Field id="free" onClick={this.onClick('free')} name="dictionary" component="input" type="radio" value="Free" />
                         {' '}
                         Free For All

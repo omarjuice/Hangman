@@ -28,21 +28,18 @@ class ManSVG extends Component {
         })
     }
     componentDidUpdate(prevProps) {
-        console.log(this.props.incorrect)
+
         if (this.props.isChoosing && !prevProps.isChoosing) {
-            console.log('restart');
             this.leftWave.restart();
             this.rightWave.restart();
         }
         if (this.props.incorrect >= 5 && this.props.gameOver) {
-            console.log('gameOver');
             this.leftWaveReverse.reverse();
             this.rightWaveReverse.reverse();
             this.leftDoor.play()
             this.rightDoor.play()
             animate.fall('#body', '#fall-path', 1000)
         } else if (this.props.incorrect < 5 && this.props.gameOver) {
-            console.log('win')
             this.leftWaveReverse.restart();
             this.rightWaveReverse.restart();
         }
@@ -109,7 +106,7 @@ const mapStateToProps = (state) => {
         myTurn: state.hangman.myTurn,
         gameOver: state.hangman.gameOver,
         skip: state.hangman.skip,
-        incorrect: state.hangman.incorrect
+        incorrect: state.hangman.incorrect,
     }
 }
 export default connect(mapStateToProps)(ManSVG);

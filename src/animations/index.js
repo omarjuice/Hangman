@@ -111,7 +111,8 @@ export const hangmanAnimation = {
         return anime({
             targets: elem,
             translateY: [{ value: ['+=80', 0], duration: 1000, easing: 'linear' }],
-            opacity: [{ value: ['*=0', 1, 1, 0], duration: 1000, easing: 'linear' }]
+            opacity: [{ value: ['*=0', 1, 1, 0], duration: 1000, easing: 'linear' }],
+            autoplay: false
         })
     },
     blink: (elem) => {
@@ -124,6 +125,7 @@ export const hangmanAnimation = {
             loop: true,
             duration: 1000,
             easing: 'linear',
+            autoplay: false
         })
     }
 

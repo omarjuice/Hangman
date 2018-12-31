@@ -21,7 +21,7 @@ class Waiting extends Component {
                 <div id="waiting-text" className="column is-half is">
                     <p className="subtitle is-4 has-text-centered has-text-dark">{this.props.word.length > 2 ? `The word was ${this.props.word.join('')}` : null}</p>
                     <h1 className="anton title is-3 has-text-centered has-text-dark">
-                        Waiting for {this.props.isChoosing && this.props.numUsers > 1 ? <><span className="has-text-primary">{this.props.master.name}</span><span> to choose a word...</span></> : `more players`}
+                        Waiting for {this.props.isChoosing && this.props.numUsers > 1 ? <><span className="has-text-primary">{this.props.master.name}</span><span> to choose a word</span></> : `more players`}
                     </h1>
                     <Ellipsis />
                 </div>

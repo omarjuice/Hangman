@@ -16,10 +16,27 @@ class Timer extends Component {
         }, () => {
 
         })
+        this.blink = animate.blink('.blink')
     }
-    componentDidUpdate() {
+    getUserScore = () => {
+        if (this.props.user) {
+            return this.props.user.score
+        }
+    }
+    componentDidUpdate({ user, incorrect }) {
         if (this.state.time && this.state.time < 6) {
-            animate.blink('.blink')
+            this.blink.play()
+        }
+        if (user) {
+            let scoreIncrease = this.getUserScore() - user.score
+            let incorrectIncrease = this.props.incorrect - incorrect
+            let scoreVal = scoreIncrease > 0 || incorrectIncrease > 0
+            if (scoreVal) {
+                this.blink.pause()
+                this.setState({
+                    time: 60,
+                })
+            }
         }
     }
     getTimer() {
@@ -49,11 +66,12 @@ class Timer extends Component {
     }
     componentWillUnmount() {
         clearInterval(this.state.timer)
+        this.blink.pause()
     }
     render() {
         let renderedTimer = this.props.svg ?
             <tspan x={this.props.x} y={this.props.y}
-                className="blink"
+                className={this.state.time < 7 ? 'blink' : null}
                 style={{ fill: this.state.time < 10 ? 'red' : 'black', fontFamily: '"Play", sans-serif', fontSize: this.props.fontSize }}
                 textAnchor={this.props.textAnchor} >{this.state.time}</tspan>
             : <span className={`is-size-3 play blink`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
@@ -62,5 +80,10 @@ class Timer extends Component {
         );
     }
 }
-
-export default connect(null, { skipMe, skipMaster })(Timer);
+const mapStateToProps = (state) => {
+    return {
+        user: state.room.users.filter((user) => user.name === state.room.user.name)[0],
+        incorrect: state.hangman.incorrect
+    }
+}
+export default connect(mapStateToProps, { skipMe, skipMaster })(Timer);

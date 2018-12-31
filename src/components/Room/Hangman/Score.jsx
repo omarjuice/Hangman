@@ -5,7 +5,9 @@ class Score extends Component {
 
     state = {
         scoreVal: null,
-        timeout: null
+    }
+    componentDidMount() {
+        this.slideInAndFade = animate.slideInAndFade('#score')
     }
     getUserScore = () => {
         if (this.props.user) {
@@ -13,37 +15,24 @@ class Score extends Component {
         }
     }
     componentDidUpdate({ user, incorrect }) {
-
         if (user) {
             let scoreIncrease = this.getUserScore() - user.score
             let scoreVal = scoreIncrease > 0 ? `+${scoreIncrease}` : null
             if (scoreVal) {
                 this.setState({
                     scoreVal,
-                    timeout: setTimeout(() => {
-                        this.setState({
-                            timeout: null,
-                            scoreVal: null
-                        })
-                    }, 1000)
                 }, () => {
-                    animate.slideInAndFade('#score')
+                    this.slideInAndFade.restart()
                 })
             }
         }
         if (typeof incorrect === 'number' && typeof this.props.incorrect === 'number' && incorrect !== 5) {
-            let scoreVal = this.props.incorrect - incorrect > 0 ? `X` : null
-            if (scoreVal && this.state.scoreVal) {
+            let scoreVal = this.props.incorrect - incorrect > 0
+            if (scoreVal) {
                 this.setState({
-                    scoreVal,
-                    timeout: setTimeout(() => {
-                        this.setState({
-                            timeout: null,
-                            scoreVal: null
-                        })
-                    }, 1000)
+                    scoreVal: 'X',
                 }, () => {
-                    animate.slideInAndFade('#score')
+                    this.slideInAndFade.restart()
                 })
             }
 

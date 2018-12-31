@@ -116,6 +116,7 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
+    margin-top: 10px;
 }
 #word-form .label{
     border-radius: 10px;
@@ -276,6 +277,7 @@
     color: black;
 }
  
+
 @media only screen and (max-width: 768px){
     .speech-bubble-left, .speech-bubble-right{
         width: 70%;
@@ -334,6 +336,9 @@
    
     #word-form-header{
         margin-bottom: -20%;
+    }
+    #word-form{
+        margin-top: -20px
     }
     .screen::before{
         background-attachment: fixed;
