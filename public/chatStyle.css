@@ -266,7 +266,9 @@
     position: relative;
     z-index: 5;
 }
-
+.glow{
+    border: 1px solid #3D9100
+}
 @keyframes blink{
     0%{
         visibility: visible;

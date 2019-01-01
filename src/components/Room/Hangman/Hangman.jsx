@@ -20,6 +20,9 @@ class Hangman extends Component {
             <>
                 <div id="svg-container" className="column is-one-fifth is-full-mobile has-text-centered">
                     <ManSVG />
+                    <p className="is-size-6">
+                        {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.myTurn ? <span>Your turn, {this.props.user}!</span> : <span>Waiting for {this.props.currentTurn}<Loader scale={.1} /></span> : null}
+                    </p>
                 </div>
                 <div className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
                     <WordBlank />
@@ -36,7 +39,12 @@ class Hangman extends Component {
 const mapStateToProps = (state) => {
     return ({
         hint: state.hangman.hint,
-        gameOver: state.hangman.gameOver
+        gameOver: state.hangman.gameOver,
+        master: state.hangman.master,
+        isChoosing: state.hangman.isChoosing,
+        currentTurn: state.hangman.turn.name,
+        myTurn: state.hangman.myTurn,
+        user: state.room.user.name
     })
 }
 export default connect(mapStateToProps, { nextTurnListener })(Hangman);

@@ -92,9 +92,9 @@ class ManSVG extends Component {
                             : null}
                     </text>
                     <text>
-                        <tspan x={width * .5} y={height * .9} style={{ fill: 'black', fontSize: height * .1 }} textAnchor="middle">
+                        {/* <tspan x={width * .5} y={height * .9} style={{ fill: 'black', fontSize: height * .1 }} textAnchor="middle">
                             {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.myTurn ? `Your turn, ${this.props.user}!` : `Waiting for ${this.props.currentTurn}...` : null}
-                        </tspan>
+                        </tspan> */}
                     </text>
                 </g>
 

@@ -45,7 +45,7 @@ class GameInit extends Component {
                     <div className="has-text-centered">
                         {this.getHeading()}
                         <p className="subtitle is-4 has-text-dark">Pick a word, <span className="has-text-primary">{this.props.master.name}</span>.</p>
-                        {this.props.Error.exists ? <ErrorMessage /> : this.props.loading ? <Loader scale={.15} /> : <Timer time={60} masterTimer={true} />}
+                        {this.props.Error.exists ? <ErrorMessage /> : this.props.loading ? <Loader scale={.15} /> : <Timer time={this.props.hasFreeDict ? 120 : 60} masterTimer={true} />}
                         <p className="has-text-danger">{this.props.info}</p>
                     </div>
                 </div>
