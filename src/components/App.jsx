@@ -19,8 +19,8 @@ class App extends Component {
             <>
                 <Router history={history}>
                     <>
-                        <Route path="/" exact component={JoinPage} />
-                        <Route path="/:roomname" exact component={GameRoom} />
+                        <Route path="/Hangman" exact component={JoinPage} />
+                        <Route path="/Hangman/:roomname" exact component={GameRoom} />
                     </>
                 </Router>
             </>
