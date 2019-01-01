@@ -56,7 +56,7 @@ class GameInit extends Component {
                         {this.props.hasFreeDict ? <Field name="hint" component={this.renderInput} autoFocus={false} label="Give them a hint!" /> : null}
 
                         <div className="control has-text-centered">
-                            <button className="button is-dark is-small"><span className="icon"><i class="fas fa-play-circle"></i></span></button>
+                            <button className="button is-dark is-small"><span className="icon"><i className="fas fa-play-circle"></i></span></button>
                         </div>
                     </form>
                 </div>

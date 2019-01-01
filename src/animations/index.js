@@ -119,8 +119,8 @@ export const hangmanAnimation = {
         return anime({
             targets: elem,
             opacity: [
-                { value: 0, duration: 500, easing: 'easeInQuad' },
-                { value: 1, duration: 500, easing: 'easeInQuad' }
+                { value: 1, duration: 500, easing: 'easeInQuad' },
+                { value: 0, duration: 500, easing: 'easeInQuad' }
             ],
             loop: true,
             duration: 1000,

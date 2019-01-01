@@ -42,6 +42,11 @@ class Timer extends Component {
     getTimer() {
         return setInterval(() => {
             if (this.state.time === 0) {
+                try {
+                    document.querySelector('.timer').style.opacity = 1
+                } catch (e) {
+                    console.log(e);
+                }
                 clearInterval(this.state.timer)
                 this.setState({
                     timer: null,
@@ -67,14 +72,15 @@ class Timer extends Component {
     componentWillUnmount() {
         clearInterval(this.state.timer)
         this.blink.pause()
+
     }
     render() {
         let renderedTimer = this.props.svg ?
             <tspan x={this.props.x} y={this.props.y}
-                className={this.state.time < 7 ? 'blink' : null}
-                style={{ fill: this.state.time < 10 ? 'red' : 'black', fontFamily: '"Play", sans-serif', fontSize: this.props.fontSize }}
+                className={`${this.state.time < 7 ? 'blink' : null} timer`}
+                style={{ fill: this.state.time < 10 ? 'red' : 'black', fontFamily: '"Play", sans-serif', fontSize: this.props.fontSize, opacity: 1 }}
                 textAnchor={this.props.textAnchor} >{this.state.time}</tspan>
-            : <span className={`is-size-3 play ${this.state.time < 7 ? 'blink' : null}`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
+            : <span className={`is-size-3 play ${this.state.time < 7 ? 'blink' : 'timer'}`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
         return (
             renderedTimer
         );

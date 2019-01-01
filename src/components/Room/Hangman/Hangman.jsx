@@ -20,11 +20,11 @@ class Hangman extends Component {
             <>
                 <div id="svg-container" className="column is-one-fifth is-full-mobile has-text-centered">
                     <ManSVG />
-                    <p className="is-size-6">
+                    <p id="info-text" className="is-size-6 play">
                         {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.myTurn ? <span>Your turn, {this.props.user}!</span> : <span>Waiting for {this.props.currentTurn}<Loader scale={.1} /></span> : null}
                     </p>
                 </div>
-                <div className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
+                <div id="word-container" className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
                     <WordBlank />
                     {this.props.gameOver ? <Loader scale={.25} /> : <p id="hint" className="subtitle has-text-dark has-text-centered">{this.props.hint}</p>}
                     {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 ? <span className="icon"><i class="fas fa-sort-down"></i></span> : null}
