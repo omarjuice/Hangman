@@ -121,7 +121,7 @@ input[type="radio"]{
     box-shadow: 0 2px 2px black
   }
 
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 767px){
 
     #title{
         font-size: 4rem
@@ -129,6 +129,17 @@ input[type="radio"]{
     }
     #join-container .column.is-one-third.has-text-centered{
       padding: 0;
-      margin-left: 5%;
+      margin-left: 7.5%;
     }
+}
+@media only screen and (min-width: 768px) and (max-width: 1042px ){
+
+  #title{
+      font-size: 4rem
+     
+  }
+  #join-container .column.is-one-third.has-text-centered{
+    padding: 0;
+    margin-left: 2.5%;
+  }
 }

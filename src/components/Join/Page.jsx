@@ -46,7 +46,7 @@ class JoinPage extends Component {
                     {this.props.error.exists ? <ErrorMessage /> : <RoomsMeta onClick={this.onRoomClick.bind(this)} />}
 
                     <div className="box noise">
-                        <div className="columns is-centered">
+                        <div className="columns is-centered is-mobile">
                             <div className={!this.props.dictionary ? "column is-four-fifths" : "column is-two-thirds"}>
                                 {/* <DictionaryForm /> */}
                                 {!this.props.dictionary ? <JoinForm initialValues={{ room: this.state.selectedRoom }} /> : <DictionaryForm />}
