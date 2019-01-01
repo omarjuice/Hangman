@@ -19,7 +19,7 @@ class JoinPage extends Component {
             return history.push(`/Hangman/${this.props.room}`)
         }
         document.querySelector('title').textContent = 'Join | Hangman'
-        document.getElementById('css-load').setAttribute('href', "/joinStyle.css")
+        document.getElementById('css-load').setAttribute('href', process.env.PUBLIC_URL + "/joinStyle.css")
         this.props.joinSuccess()
         this.props.errorListener()
         this.props.askForDictListener()

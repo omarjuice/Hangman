@@ -38,7 +38,7 @@ class UserList extends Component {
                                 rel="noopener noreferrer"
                                 href={this.props.dictionary === 'Oxford' ? 'https://developer.oxforddictionaries.com/' : 'https://www.urbandictionary.com/'}>
                                 <figure className="image is-3by1">
-                                    <img id={`${this.props.dictionary}-logo`} src={`/images/${this.props.dictionary}logo.png`} alt={`${this.props.dictionary} Dictionary`} />
+                                    <img id={`${this.props.dictionary}-logo`} src={`${process.env.PUBLIC_URL}/images/${this.props.dictionary}logo.png`} alt={`${this.props.dictionary} Dictionary`} />
                                 </figure>
                             </a>
                         </div>

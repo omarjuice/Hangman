@@ -28,10 +28,16 @@ html, body, #root{
 }
 #Urban-logo{
   clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
-  transform: scaleY(1.5)
+  transform: scaleY(1.5);
+  -o-transform: scaleY(1.5);
+  -moz-transform: scaleY(1.5);
+  -webkit-transform: scaleY(1.5);
 }
 #Oxford-logo{
-    transform: scaleY(.75);
+    transform: scaleY(.65);
+    -o-transform: scaleY(.65);
+    -moz-transform: scaleY(.65);
+    -webkit-transform: scaleY(.65);
 }
 input[type="radio"]{
   visibility: hidden;

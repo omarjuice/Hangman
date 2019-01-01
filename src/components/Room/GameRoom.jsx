@@ -15,7 +15,7 @@ const toggleMenu = () => {
 class ChatRoom extends Component {
     componentDidMount() {
         document.querySelector('title').textContent = 'Play | Hangman'
-        document.getElementById('css-load').setAttribute('href', '/chatStyle.css')
+        document.getElementById('css-load').setAttribute('href', process.env.PUBLIC_URL + '/chatStyle.css')
         if (!this.props.room) {
             return history.push('/Hangman')
         }
