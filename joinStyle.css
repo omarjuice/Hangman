@@ -1,0 +1,124 @@
+html, body, #root{
+    min-height: 100%;
+    background-color: hsl(0, 0%, 10%)
+}
+
+#join-container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0   
+}
+
+.box{
+    position: relative;
+    border: 5px outset #C26EFF;
+    background-image: url(https://preview.redd.it/vewr28mh54h11.jpg?width=960&crop=smart&auto=webp&s=294040df28930f2aa82bba16cc5e8db6be6c900f);
+    background-size: cover;
+}
+.anton{
+    font-family: 'Anton', sans-serif
+}
+.play{
+  font-family:  'Play', sans-serif
+}
+#Urban-logo{
+  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+}
+input[type="radio"]{
+  visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+#free-label span{
+  margin-left: -5%;
+}
+
+.label{
+  position: relative;
+  z-index: 1;
+}
+.label figure{
+  margin-top: -5%
+}
+.selected{
+  box-shadow: 1px 2px 2px black;
+  border: 1px solid #3D9100
+}
+
+.anton.label{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.list-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+.list-item p {
+  width: 95%
+}
+.list-item p .icon{
+  float: right;
+}
+.list-item p em, .list-item p strong{
+  padding-right: 10px;
+  border-right: 1px solid #C26EFF;
+  float: left;
+}
+.list-item p strong{
+  padding-left: 10px
+}
+.list-item p .num{
+  padding-left: 10px;
+  float: left
+}
+/* #title{
+    position: relative;
+    font-size: 5rem
+} */
+#title{
+  position: relative;
+  z-index: 2;
+}
+#title-red{
+  position: relative;
+  z-index: 0;
+}
+#title-blue{
+  position: relative;
+  z-index: 0;
+}
+.card{
+  border: 5px outset #C26EFF;
+
+}
+.card .card-content .list{
+  max-height: 75px;
+  overflow: scroll;
+}
+
+  .label{
+      border-radius: 10px;
+      box-shadow: 0 2px 2px black
+  }
+  .button{
+    box-shadow: 0 2px 2px black
+  }
+
+@media only screen and (max-width: 1024px){
+
+    #title{
+        font-size: 4rem
+       
+    }
+    #join-container .column.is-one-third.has-text-centered{
+      padding: 0;
+      margin-left: 5%;
+    }
+}
