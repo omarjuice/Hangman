@@ -361,6 +361,17 @@
         position: absolute;
         z-index: 10;
     }
+    #info-text{
+        position: relative;
+        top: -10px;
+    }
+    #word-container{
+        position: relative;
+        top: -5vh
+    }
+    #letter-buttons{
+        margin-top: -10%
+    }
 
    
 }
