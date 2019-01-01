@@ -12,9 +12,7 @@ class App extends Component {
     componentDidMount() {
         this.props.bootServer()
         this.props.createConnection()
-        if (!this.props.room) {
-            history.push('/Hangman')
-        }
+
     }
     render() {
         return (
@@ -33,7 +31,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         connection: state.connection,
-        room: state.room.roomName
+
     }
 }
 
