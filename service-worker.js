@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Hangman/precache-manifest.adec197f2ed500947bb367fbbdcc547c.js"
+  "/Hangman/precache-manifest.db1f843a996488f801fc59895e491429.js"
 );
 
 workbox.clientsClaim();
