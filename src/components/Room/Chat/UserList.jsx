@@ -28,7 +28,7 @@ class UserList extends Component {
                     <div className="column is-one-third">
                         <a href="https://omarjuice.github.io/" rel="noopener noreferrer" target="_blank" >
                             <figure className="image is-4by3">
-                                <img id={`OJ-logo`} src={`./images/OJICONtrue.png`} alt={`OJ`} />
+                                <img id={`OJ-logo`} src={`/images/OJICONtrue.png`} alt={`OJ`} />
                             </figure>
                         </a>
                     </div>
@@ -38,7 +38,7 @@ class UserList extends Component {
                                 rel="noopener noreferrer"
                                 href={this.props.dictionary === 'Oxford' ? 'https://developer.oxforddictionaries.com/' : 'https://www.urbandictionary.com/'}>
                                 <figure className="image is-3by1">
-                                    <img id={`${this.props.dictionary}-logo`} src={`./images/${this.props.dictionary}logo.png`} alt={`${this.props.dictionary} Dictionary`} />
+                                    <img id={`${this.props.dictionary}-logo`} src={`/images/${this.props.dictionary}logo.png`} alt={`${this.props.dictionary} Dictionary`} />
                                 </figure>
                             </a>
                         </div>
