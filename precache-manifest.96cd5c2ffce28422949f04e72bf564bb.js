@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/Hangman/static/js/runtime~main.ae1caf01.js"
   },
   {
-    "revision": "3ea4d42a8a2e23bf3d9a",
-    "url": "/Hangman/static/js/main.3ea4d42a.chunk.js"
+    "revision": "24c5880a47efa7a3ffe5",
+    "url": "/Hangman/static/js/main.24c5880a.chunk.js"
   },
   {
     "revision": "5999a27d4c930c812b6f",
     "url": "/Hangman/static/js/1.5999a27d.chunk.js"
   },
   {
-    "revision": "5bf0180aa8b3cc1124ea9f5f355af2dc",
+    "revision": "2fad09203f7c70d54387ee3d16de2145",
     "url": "/Hangman/index.html"
   }
 ];
