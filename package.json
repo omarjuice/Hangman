@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "name": "hangman",
+  "homepage": "https://omarjuice.github.io/Hangman/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
