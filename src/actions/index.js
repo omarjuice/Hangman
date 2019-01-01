@@ -160,6 +160,13 @@ export const joinSuccess = () => (dispatch, getState) => {
         dispatch({
             type: 'CREATE_MESSAGE'
         })
+        dispatch({
+            type: ERROR,
+            error: {
+                exists: false,
+                message: ''
+            }
+        })
     })
 
 }

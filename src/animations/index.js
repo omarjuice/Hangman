@@ -191,5 +191,16 @@ export const svgAnimation = {
             obj.easing = easing
         }
         return anime(obj)
+    },
+    drawStroke: (elem, delay) => {
+        return anime({
+            targets: elem.selector,
+            x2: { value: [elem.x1, elem.x2], duration: 500 },
+            y2: { value: [elem.y1, elem.y2], duration: 500 },
+            delay: delay ? 500 : 0,
+            easing: 'linear',
+            autoplay: true,
+            loop: false
+        })
     }
 }

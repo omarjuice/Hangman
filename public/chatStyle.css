@@ -282,7 +282,7 @@
 
  
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 767px){
     .speech-bubble-left, .speech-bubble-right{
         width: 70%;
     }
@@ -355,6 +355,9 @@
         position: absolute;
         z-index: 10;
     }
+    #ellipsis{
+        margin-top: -20px;
+    }
 
 }
 @media only screen 
@@ -364,6 +367,30 @@
     #hangman-svg{
         width: 75%
     }
-   
-
+}
+@media only screen
+and (min-width: 781px)
+and (max-width: 991px){
+    #hangman{
+        height: 50%;
+        
+    }
+    .messages-container{
+        height: 40%;
+        top: 50%;
+        
+    }
+    #hangman-svg{
+        position: absolute;
+        left: 0;
+        width: 20%;
+    }
+    #waiting-text{
+        position: absolute;
+        right: 0;
+    }
+    #letter-buttons{
+        display: flex;
+        align-items: center
+    }
 }

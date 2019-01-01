@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import history from '../../history';
 import JoinForm from './JoinForm';
 import { joinSuccess, errorListener, getUserMetaData, askForDictListener } from '../../actions';
 import ErrorMessage from '../ErrorMessage';
@@ -14,6 +15,9 @@ class JoinPage extends Component {
         selectedRoom: ''
     }
     componentDidMount() {
+        if (this.props.room) {
+            return history.push(`/${this.props.room}`)
+        }
         document.querySelector('title').textContent = 'Join | Hangman'
         document.getElementById('css-load').setAttribute('href', "joinStyle.css")
         this.props.joinSuccess()
@@ -58,7 +62,8 @@ const mapStateToProps = (state) => {
     return {
         error: state.error,
         loading: state.loading,
-        dictionary: state.room.dictionary
+        dictionary: state.room.dictionary,
+        room: state.room.roomName
     }
 }
 export default connect(mapStateToProps, { joinSuccess, errorListener, getUserMetaData, askForDictListener })(JoinPage);

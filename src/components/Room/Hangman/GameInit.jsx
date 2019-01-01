@@ -32,7 +32,7 @@ class GameInit extends Component {
             <div className="field">
                 <label className={labelClass}>{meta.touched && meta.error ? meta.error : label}</label>
                 <div className="control">
-                    <input className="input is-dark" {...input} type="text" autoFocus={autoFocus} />
+                    <input className="input is-dark" {...input} type="text" autoFocus={autoFocus} autoComplete="off" />
                 </div>
 
             </div>

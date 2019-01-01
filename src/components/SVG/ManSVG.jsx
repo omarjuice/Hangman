@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Timer from './Timer';
+import XSVG from './XSVG';
 import { svgAnimation as animate } from '../../animations';
+
 
 class ManSVG extends Component {
     constructor(props) {
@@ -74,6 +76,9 @@ class ManSVG extends Component {
                     <line id="door-right" x1="70.4" y1="150" x2="87" y2="150" stroke="black" strokeWidth="4" />
                     <line id="door-left" x1="131.8" y1="150" x2="87" y2="150" stroke="black" strokeWidth="4" />
                     <line x1="131.8" y1="150" x2="150" y2="150" stroke="black" strokeWidth="4" />
+                </g>
+                <g id="incorrect" >
+                    <XSVG x="0" y="0" color={this.props.master && this.props.master.name === this.props.user ? 'green' : 'red'} />
                 </g>
                 <path d="M99.7,0A17612.30316,17612.30316,0,0,1,100.3,198.2" style={{ fill: 'none', stroke: 'black', strokeWidth: '0' }} id="fall-path"></path>
                 <path d="M80.2,104.5A40.175389,40.175389,0,0,1,71,41.3" style={{ fill: 'none', stroke: 'black', strokeWidth: '0' }} id="arc-right"></path>

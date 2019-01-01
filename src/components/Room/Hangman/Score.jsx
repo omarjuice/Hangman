@@ -15,7 +15,7 @@ class Score extends Component {
             return this.props.user.score
         }
     }
-    componentDidUpdate({ user, incorrect }) {
+    componentDidUpdate({ user }) {
         if (user) {
             let scoreIncrease = this.getUserScore() - user.score
             let scoreVal = scoreIncrease > 0 ? `+${scoreIncrease}` : null
@@ -33,28 +33,12 @@ class Score extends Component {
                 })
             }
         }
-        if (typeof incorrect === 'number' && typeof this.props.incorrect === 'number' && incorrect !== 5 && this.props.myTurn) {
-            let scoreVal = this.props.incorrect - incorrect > 0
-            if (scoreVal) {
-                this.setState({
-                    scoreVal: 'X',
-                    timeout: setTimeout(() => {
-                        this.setState({
-                            scoreVal: null,
-                            timeout: null
-                        })
-                    }, 1000)
-                }, () => {
-                    this.slideInAndFade.restart()
-                })
-            }
 
-        }
 
     }
     render() {
         return (
-            <p id="score" className={`has-text-${this.state.scoreVal === 'X' ? 'danger' : 'success'} bold anton is-size-2`}>{this.state.scoreVal ? <span>{this.state.scoreVal}</span> : null}</p>
+            <p id="score" className="has-text-success bold anton is-size-2">{this.state.scoreVal ? <span>{this.state.scoreVal}</span> : null}</p>
         );
     }
 }
@@ -62,7 +46,6 @@ class Score extends Component {
 const mapStateToProps = (state) => {
     return {
         user: state.room.users.filter((user) => user.name === state.room.user.name)[0],
-        incorrect: state.hangman.incorrect,
         myTurn: state.hangman.myTurn
     }
 }

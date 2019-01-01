@@ -12,7 +12,7 @@ class RoomsMeta extends Component {
                     <p>
                         <em>{room.name}</em>
                         <strong>{room.numUsers > 4 ? ' MAX' : null}</strong>
-                        <span className="num">{room.numUsers} {room.numUsers === 1 ? 'user' : 'users'}</span>
+                        <span className="num">{room.numUsers} {room.numUsers === 1 ? 'player' : 'players'}</span>
 
                         <span onClick={this.props.onClick(room.name)} className="icon has-text-success"><i className="fas fa-sign-in-alt"></i></span>
                     </p>

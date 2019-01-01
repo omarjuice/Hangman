@@ -4,13 +4,16 @@ import { letterSelected, letterListener } from '../../../actions/index';
 import { hangmanAnimation as animate } from '../../../animations';
 
 class Letters extends Component {
+
     componentDidMount() {
         this.props.letterSelected()
     }
+
     selectLetter = (letter) => () => {
+
         animate.shrinkToNothing(`#letter-${letter}`).finished.then(() => this.props.letterSelected(letter))
     }
-    renderLetterButtons() {
+    renderLetterButtons = () => {
         return this.props.remainingLetters.map((letter) => {
             return (
                 <p key={letter} id={`letter-${letter}`} onClick={this.selectLetter(letter)} className="button play letter">{letter}</p>
@@ -28,7 +31,8 @@ class Letters extends Component {
 const mapStateToProps = (state) => {
     return {
         remainingLetters: state.hangman.remainingLetters,
-        gameOver: state.hangman.gameOver
+        gameOver: state.hangman.gameOver,
+
     }
 }
 
