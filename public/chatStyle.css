@@ -126,6 +126,9 @@
     justify-content: center;
     align-items: center
 }
+#hint{
+    margin-bottom: -10px
+}
 .messages-container{
     position: fixed;
     top: 30%;
@@ -248,7 +251,10 @@
 #score span{
     position: relative;
 }
-
+#error-message{
+    position: relative;
+    z-index: 5;
+}
 
 @keyframes blink{
     0%{
@@ -273,9 +279,7 @@
 .fa-star{
     color: silver
 }
-.fa-spinner{
-    color: black;
-}
+
  
 
 @media only screen and (max-width: 768px){
@@ -338,7 +342,7 @@
         margin-bottom: -20%;
     }
     #word-form{
-        margin-top: -20px
+        margin-top: -40%
     }
     .screen::before{
         background-attachment: fixed;

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import JoinForm from './JoinForm';
-import Loader from '../Loader';
 import { joinSuccess, errorListener, getUserMetaData, askForDictListener } from '../../actions';
 import ErrorMessage from '../ErrorMessage';
 import RoomsMeta from './RoomsMeta';
 import { homepageAnimation as animate } from '../../animations';
 import Title from '../SVG/Title';
 import DictionaryForm from './DictionaryForm';
+import Loader from '../SVG/Loader';
 
 class JoinPage extends Component {
     state = {
@@ -26,8 +26,6 @@ class JoinPage extends Component {
         return () => {
             this.setState({
                 selectedRoom: room
-            }, () => {
-                console.log(this.state);
             })
         }
 
@@ -40,7 +38,7 @@ class JoinPage extends Component {
 
                     {/* <h1 id="title" className="title is-1 anton has-text-white glitch" datatext="HANGMAN">HANGM<i className="fas fa-male"></i>N</h1> */}
                     <Title componentId="title" text={`HANGMAN`} colors={{ primary: 'white', secondary: '#3D9100', tertiary: '#C26EFF' }} />
-                    {this.props.loading ? <Loader /> : ''}
+                    {this.props.loading ? <Loader scale={.15} color='white' /> : ''}
                     {this.props.error.exists ? <ErrorMessage /> : <RoomsMeta onClick={this.onRoomClick.bind(this)} />}
 
                     <div className="box noise">

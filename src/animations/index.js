@@ -55,11 +55,10 @@ export const homepageAnimation = {
     slideOut: (elem) => {
         return anime({
             targets: elem,
-            translateY: [{ value: [0, 200], duration: 1000, elasticity: 500 }],
+            translateY: [{ value: [0, 1000], duration: 1000, elasticity: 500 }],
         })
     },
     pop: (elem) => {
-        console.log(elem);
         return anime({
             targets: elem,
             scale: 1.1,
@@ -112,6 +111,7 @@ export const hangmanAnimation = {
             targets: elem,
             translateY: [{ value: ['+=80', 0], duration: 1000, easing: 'linear' }],
             opacity: [{ value: ['*=0', 1, 1, 0], duration: 1000, easing: 'linear' }],
+            visibility: { value: 'hidden', delay: 1000, duration: 1 },
             autoplay: false
         })
     },
@@ -126,6 +126,14 @@ export const hangmanAnimation = {
             duration: 1000,
             easing: 'linear',
             autoplay: false
+        })
+    },
+    shrinkToNothing: (elem) => {
+        return anime({
+            targets: elem,
+            scale: 0,
+            duration: 500,
+            easing: 'easeInOutBack'
         })
     }
 

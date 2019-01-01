@@ -18,7 +18,7 @@ class ErrorMessage extends Component {
 
             <article id="error-message" className={this.props.error.exists ? 'message is-danger' : 'message is-invisible'}>
                 <div className="message-header">
-                    <p>Error!</p>
+                    <p>{'Error!'}</p>
                     <button onClick={this.cancelError} className="delete" aria-label="delete"></button>
                 </div>
                 <div className="message-body">

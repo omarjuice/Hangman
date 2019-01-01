@@ -74,7 +74,7 @@ class Timer extends Component {
                 className={this.state.time < 7 ? 'blink' : null}
                 style={{ fill: this.state.time < 10 ? 'red' : 'black', fontFamily: '"Play", sans-serif', fontSize: this.props.fontSize }}
                 textAnchor={this.props.textAnchor} >{this.state.time}</tspan>
-            : <span className={`is-size-3 play blink`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
+            : <span className={`is-size-3 play ${this.state.time < 7 ? 'blink' : null}`} style={{ color: this.state.time < 10 ? 'red' : 'black' }}>{this.state.time}</span>
         return (
             renderedTimer
         );

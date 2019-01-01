@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ManSVG from '../../SVG/ManSVG';
 import { connect } from 'react-redux';
-import Ellipsis from '../../SVG/Ellipsis';
+import Loader from '../../SVG/Loader';
 import { hangmanAnimation as animate } from '../../../animations';
 
 
@@ -23,7 +23,7 @@ class Waiting extends Component {
                     <h1 className="anton title is-3 has-text-centered has-text-dark">
                         Waiting for {this.props.isChoosing && this.props.numUsers > 1 ? <><span className="has-text-primary">{this.props.master.name}</span><span> to choose a word</span></> : `more players`}
                     </h1>
-                    <Ellipsis />
+                    <Loader />
                 </div>
             </>
         );

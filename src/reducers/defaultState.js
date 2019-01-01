@@ -19,6 +19,7 @@ export default {
         master: {},
         isChoosing: false,
         word: [],
+        info: false,
         hint: '',
         myTurn: false,
         remainingLetters: [],

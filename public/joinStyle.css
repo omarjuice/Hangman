@@ -34,6 +34,9 @@ input[type="radio"]{
   position: relative;
   z-index: -1;
 }
+#free-label span{
+  margin-left: -5%;
+}
 
 .label{
   position: relative;
@@ -107,10 +110,7 @@ input[type="radio"]{
   .button{
     box-shadow: 0 2px 2px black
   }
-  .fa-spinner{
-    margin: 20px 0
 
-}
 @media only screen and (max-width: 1024px){
 
     #title{

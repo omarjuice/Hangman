@@ -13,6 +13,7 @@ import {
     LETTER_SELECTED,
     NEW_MASTER,
     NEW_WORD,
+    WORD_INFO,
     MY_TURN,
 
 } from './types';
@@ -100,7 +101,6 @@ export const newMessageListener = () => dispatch => {
 }
 export const initiateJoin = ({ name, room }) => dispatch => {
     socket.emit('join', { name, room }, (err) => {
-        console.log(err)
         dispatch({
             type: ERROR,
             error: {
@@ -186,6 +186,7 @@ export const errorListener = () => dispatch => {
     })
 }
 export const cancelError = () => dispatch => {
+    console.log('canceled');
     dispatch({
         type: ERROR,
         error: {
@@ -211,14 +212,14 @@ export const getUserMetaData = () => dispatch => {
     })
 }
 export const letterSelected = (letter) => (dispatch, getState) => {
-    return () => {
-        if (getState().hangman.myTurn) {
-            socket.emit('selectingLetter', { letter, room: getState().room.roomName })
-            dispatch({
-                type: 'SELECTING_LETTER'
-            })
-        }
+
+    if (getState().hangman.myTurn) {
+        socket.emit('selectingLetter', { letter, room: getState().room.roomName })
+        dispatch({
+            type: 'SELECTING_LETTER'
+        })
     }
+
 }
 export const letterListener = () => (dispatch, getState) => {
     socket.on('letterSelected', (game) => {
@@ -242,6 +243,9 @@ export const newWord = ({ word, hint }) => (dispatch, getState) => {
     dispatch({
         type: 'WORD_CHOSEN'
     })
+    dispatch({
+        type: LOADING
+    })
 }
 export const wordSetListener = () => (dispatch, getState) => {
     socket.on('wordSet', (game) => {
@@ -249,7 +253,20 @@ export const wordSetListener = () => (dispatch, getState) => {
             type: NEW_WORD,
             game
         })
+        dispatch({
+            type: CANCEL_LOAD
+        })
         socket.emit('selectingLetter', { letter: null, room: getState().room.roomName })
+    })
+}
+export const wordInfoListener = () => (dispatch) => {
+    socket.on('wordInfo', (info) => {
+        dispatch({
+            type: CANCEL_LOAD
+        })
+        dispatch({
+            type: WORD_INFO, info
+        })
     })
 }
 export const nextTurnListener = () => (dispatch, getState) => {

@@ -5,6 +5,7 @@ class Score extends Component {
 
     state = {
         scoreVal: null,
+        timeout: null
     }
     componentDidMount() {
         this.slideInAndFade = animate.slideInAndFade('#score')
@@ -21,16 +22,28 @@ class Score extends Component {
             if (scoreVal) {
                 this.setState({
                     scoreVal,
+                    timeout: setTimeout(() => {
+                        this.setState({
+                            scoreVal: null,
+                            timeout: null
+                        })
+                    }, 1000)
                 }, () => {
                     this.slideInAndFade.restart()
                 })
             }
         }
-        if (typeof incorrect === 'number' && typeof this.props.incorrect === 'number' && incorrect !== 5) {
+        if (typeof incorrect === 'number' && typeof this.props.incorrect === 'number' && incorrect !== 5 && this.props.myTurn) {
             let scoreVal = this.props.incorrect - incorrect > 0
             if (scoreVal) {
                 this.setState({
                     scoreVal: 'X',
+                    timeout: setTimeout(() => {
+                        this.setState({
+                            scoreVal: null,
+                            timeout: null
+                        })
+                    }, 1000)
                 }, () => {
                     this.slideInAndFade.restart()
                 })
@@ -49,7 +62,8 @@ class Score extends Component {
 const mapStateToProps = (state) => {
     return {
         user: state.room.users.filter((user) => user.name === state.room.user.name)[0],
-        incorrect: state.hangman.incorrect
+        incorrect: state.hangman.incorrect,
+        myTurn: state.hangman.myTurn
     }
 }
 

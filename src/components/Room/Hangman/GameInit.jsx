@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { newWord } from '../../../actions'
+import { newWord, wordInfoListener } from '../../../actions'
 import Timer from '../../SVG/Timer';
 import { hangmanAnimation as animate } from '../../../animations';
+import Loader from '../../SVG/Loader';
+import ErrorMessage from '../../ErrorMessage';
 class GameInit extends Component {
     componentDidMount() {
         animate.changeScreen('.screen')
+        this.props.wordInfoListener()
     }
     getHeading = () => {
         if (this.props.word.length > 2) {
@@ -14,12 +17,13 @@ class GameInit extends Component {
                 <>
                     <h1 className="title is-4 has-text-dark">Game Over!</h1>
                     <p className="has-text-dark">The word was {this.props.word}.</p>
+
                 </>
             )
         }
     }
+
     onSubmit = (formValues) => {
-        formValues.word = formValues.word.toUpperCase()
         this.props.newWord(formValues)
     }
     renderInput = ({ input, autoFocus, label, meta }) => {
@@ -30,6 +34,7 @@ class GameInit extends Component {
                 <div className="control">
                     <input className="input is-dark" {...input} type="text" autoFocus={autoFocus} />
                 </div>
+
             </div>
         )
     }
@@ -40,7 +45,8 @@ class GameInit extends Component {
                     <div className="has-text-centered">
                         {this.getHeading()}
                         <p className="subtitle is-4 has-text-dark">Pick a word, <span className="has-text-primary">{this.props.master.name}</span>.</p>
-                        <Timer time={60} masterTimer={true} />
+                        {this.props.Error.exists ? <ErrorMessage /> : this.props.loading ? <Loader scale={.15} /> : <Timer time={60} masterTimer={true} />}
+                        <p className="has-text-danger">{this.props.info}</p>
                     </div>
                 </div>
 
@@ -86,7 +92,10 @@ const mapStateToProps = (state) => {
         gameOver: state.hangman.gameOver,
         master: state.hangman.master,
         user: state.room.user,
-        hasFreeDict: state.room.dictionary === 'Free'
+        hasFreeDict: state.room.dictionary === 'Free',
+        loading: state.loading,
+        Error: state.error,
+        info: state.hangman.info
     }
 }
-export default connect(mapStateToProps, { newWord })(GameInitForm);
+export default connect(mapStateToProps, { newWord, wordInfoListener })(GameInitForm);

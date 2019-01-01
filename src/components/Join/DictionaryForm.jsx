@@ -39,7 +39,6 @@ class DictionaryForm extends Component {
 
         return () => {
             this.ids.forEach((ID) => {
-                console.log(this.pop[ID].reversed)
                 if (ID === id) {
                     this.pop[ID].reversed = false
                     this.pop[ID].play()
@@ -75,11 +74,11 @@ class DictionaryForm extends Component {
                             <img id="Urban-logo" src="./images/Urbanlogo.png" alt="Urban Dictionary" />
                         </figure>
                     </label>
-                    <label id="free-label" className="label dict-label has-background-dark is-size-1 is-size-3-mobile anton">
+                    <label id="free-label" className="label dict-label has-background-dark is-size-1 is-size-2-tablet is-size-3-mobile anton">
                         <Field id="free" onClick={this.onClick('free')} name="dictionary" component="input" type="radio" value="Free" />
                         {' '}
-                        Free For All
-                </label>
+                        <span>Free For All</span>
+                    </label>
                 </div>
                 <div className="control has-text-centered">
                     <button className="button is-dark is-large"><span className="icon"><i className="fas fa-dungeon fa-2x"></i></span></button>
