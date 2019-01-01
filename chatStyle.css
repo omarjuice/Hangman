@@ -52,7 +52,8 @@
 #waiting-text{
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    align-items: center
 }
 
 .menu-label{
@@ -269,17 +270,8 @@
 .glow{
     border: 1px solid #3D9100
 }
-@keyframes blink{
-    0%{
-        visibility: visible;
-    }
-    50%{
-        visibility: hidden;
-    }
-    100%{
-        visibility: hidden;
-    }
-}
+
+
 .fa-comment.new{
     color: #C26EFF;
 }
@@ -295,7 +287,7 @@
 
  
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 768px){
     .speech-bubble-left, .speech-bubble-right{
         width: 70%;
     }
@@ -313,6 +305,7 @@
     }
     #message-form{
         width: 100%;
+        bottom: -2%;
     }
     #user-list{
         display: none;
@@ -368,10 +361,8 @@
         position: absolute;
         z-index: 10;
     }
-    #ellipsis{
-        margin-top: -20px;
-    }
 
+   
 }
 @media only screen 
   and (min-width: 1024px) 
