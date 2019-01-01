@@ -6,6 +6,6 @@
   "runtime~main.js": "/Hangman/static/js/runtime~main.ae1caf01.js",
   "runtime~main.js.map": "/Hangman/static/js/runtime~main.ae1caf01.js.map",
   "index.html": "/Hangman/index.html",
-  "precache-manifest.96cd5c2ffce28422949f04e72bf564bb.js": "/Hangman/precache-manifest.96cd5c2ffce28422949f04e72bf564bb.js",
+  "precache-manifest.d539ea6e5612c5437ff15b50e539f6d0.js": "/Hangman/precache-manifest.d539ea6e5612c5437ff15b50e539f6d0.js",
   "service-worker.js": "/Hangman/service-worker.js"
 }
