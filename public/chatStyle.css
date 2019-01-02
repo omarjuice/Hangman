@@ -348,7 +348,7 @@
         margin-bottom: -20%;
     }
     #word-form{
-        margin-top: -40%
+        margin-top: -30%
     }
     .screen::before{
         background-attachment: fixed;
@@ -367,7 +367,7 @@
     }
     #word-container{
         position: relative;
-        top: -5vh
+        top: -6vh
     }
     #letter-buttons{
         margin-top: -10%

@@ -88,7 +88,7 @@ class ManSVG extends Component {
                 < g>
                     <text>
                         {this.props.myTurn && !this.props.isChoosing && !this.props.gameOver && this.props.master.name ?
-                            <Timer x={width * 5 / 12} y={height * 5 / 12} fontSize={height * .2} textAnchor="middle" svg={true} time={10} />
+                            <Timer x={width * 5 / 12} y={height * 5 / 12} fontSize={height * .2} textAnchor="middle" svg={true} time={60} />
                             : null}
                     </text>
                     <text>

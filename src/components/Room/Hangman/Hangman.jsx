@@ -8,6 +8,10 @@ import { hangmanAnimation as animate } from '../../../animations';
 import Loader from '../../SVG/Loader';
 
 class Hangman extends Component {
+    state = {
+        mobileDisplayed: false
+        //false for hint true for letters
+    }
     componentDidMount() {
         this.props.nextTurnListener()
         animate.changeScreen('.screen')
@@ -15,7 +19,14 @@ class Hangman extends Component {
             console.log(this.props.hint.length)
         }
     }
+    changeDisplay = () => {
+        this.setState({
+            mobileDisplayed: !this.state.mobileDisplayed
+        })
+    }
     render() {
+        let bodyHeight = document.querySelector('html').clientHeight
+        console.log(bodyHeight);
         return (
             <>
                 <div id="svg-container" className="column is-one-fifth is-full-mobile has-text-centered">
@@ -26,11 +37,12 @@ class Hangman extends Component {
                 </div>
                 <div id="word-container" className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
                     <WordBlank />
-                    {this.props.gameOver ? <Loader scale={.25} /> : <p id="hint" className="subtitle has-text-dark has-text-centered">{this.props.hint}</p>}
+                    {this.props.gameOver ? <Loader scale={.25} /> : !this.state.mobileDisplayed || bodyHeight > 600 ? <p id="hint" className="subtitle has-text-dark has-text-centered">{this.props.hint}</p> : null}
                     {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 ? <span className="icon"><i class="fas fa-sort-down"></i></span> : null}
+                    {bodyHeight < 600 && !this.props.gameOver ? <button onClick={this.changeDisplay} className="button is-dark"><span className="icon">{this.state.mobileDisplayed ? <i className="fas fa-question-circle"></i> : <i className="fas fa-pencil-alt"></i>}</span></button> : null}
                 </div>
                 <div id="letter-buttons" className="column is-one-quarter is-half-tablet has-text-centered">
-                    <Letters />
+                    {this.state.mobileDisplayed || bodyHeight > 600 ? <Letters /> : null}
                 </div>
             </>
         );

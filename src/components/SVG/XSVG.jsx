@@ -11,10 +11,10 @@ class XSVG extends Component {
             document.querySelector(`#x-right-${this.props.incorrect - 1}`)].forEach((stroke, i) => {
                 animate.drawStroke({
                     selector: stroke,
-                    x1: stroke.getAttribute('x1'),
-                    x2: stroke.getAttribute('x2'),
-                    y1: stroke.getAttribute('y1'),
-                    y2: stroke.getAttribute('y2'),
+                    x1: i === 1 ? 20 : 5,
+                    x2: i === 1 ? 5 : 20,
+                    y1: (this.props.incorrect - 1) * 25 + 10,
+                    y2: (this.props.incorrect - 1) * 25 + 25,
                 }, i === 1)
             })
         }

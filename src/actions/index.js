@@ -1,4 +1,5 @@
 import io from 'socket.io-client';
+import moment from 'moment';
 import {
     CONNECT,
     DISCONNECT,
@@ -97,7 +98,9 @@ export const newMessageListener = () => dispatch => {
     socket.on('newMessage', (messageList) => {
         dispatch({
             type: NEW_MESSAGE,
-            messageList
+            messageList: messageList.map((message) => {
+                return { ...message, createdAt: moment.utc(message.createdAt).local().format('h:mm a') }
+            })
         })
     })
 }
