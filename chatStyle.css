@@ -357,6 +357,12 @@
     #word-container{
         top: -9vh
     }
+    #letter-buttons{
+        margin-top: -15%;
+    }
+    #message-form{
+        bottom: -3%
+    }
 }
 @media only screen 
   and (min-width: 1024px) 
