@@ -376,6 +376,7 @@
 @media only screen and (max-width: 400px){
     #word-container{
         position: relative;
+        top: -11vh
     }
     #letter-buttons{
         margin-top: -15%;
