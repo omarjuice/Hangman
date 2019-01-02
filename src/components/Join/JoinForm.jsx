@@ -54,7 +54,7 @@ const validate = ({ name, room }) => {
     if (name && regex.test(name)) {
         errors.name = "Invalid Name"
     }
-    if (name && name.length > 15) {
+    if (name && name.length > 10) {
         errors.name = "Name too Long"
     }
     if (name && name.toLowerCase() === 'admin') {
@@ -66,7 +66,7 @@ const validate = ({ name, room }) => {
     if (room && regex.test(room)) {
         errors.room = "Invalid room name"
     }
-    if (room && room.length > 15) {
+    if (room && room.length > 12) {
         errors.room = "Room name too long"
     }
 

@@ -13,10 +13,10 @@ class UserList extends Component {
             return (
                 <li key={id}
                     className="list-item user-list-item has-text-light bold is-size-5 play">
-                    {name}
+                    <span className={name.length > 7 ? 'is-size-7' : null}>{name}</span>
                     <span className="is-pulled-right">
                         {name === highestScore ? <span className="icon"><i className="fas fa-crown"></i></span> : null}
-                        {name === this.props.master.name ? <span className="icon"><i className="fas fa-brain"></i></span> : null} {score} {score === 1 ? 'point' : 'points'}</span>
+                        {name === this.props.master.name ? <span className="icon"><i className="fas fa-brain"></i></span> : null} {score} </span>
                 </li>
             )
         })

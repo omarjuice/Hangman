@@ -286,12 +286,7 @@
 }
 
  
-@media only screen and (max-width: 400px){
-    #word-container{
-        position: relative;
-        top: -8vh
-    }
-}
+
 @media only screen and (max-width: 768px){
     .speech-bubble-left, .speech-bubble-right{
         width: 70%;
@@ -376,6 +371,12 @@
     }
     #letter-buttons{
         margin-top: -10%
+    }
+}
+@media only screen and (max-width: 400px){
+    #word-container{
+        position: relative;
+        top: -9vh
     }
 }
 

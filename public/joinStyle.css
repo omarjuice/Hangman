@@ -26,6 +26,9 @@ html, body, #root{
 .play{
   font-family:  'Play', sans-serif
 }
+.bold{
+  font-weight: bold
+}
 #Urban-logo{
   clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
   transform: scaleY(1.5);
@@ -71,7 +74,7 @@ input[type="radio"]{
   align-items: center
 }
 .list-item p {
-  width: 95%
+  width: 99%
 }
 .list-item p .icon{
   float: right;
@@ -81,7 +84,7 @@ input[type="radio"]{
   border-right: 1px solid #C26EFF;
   float: left;
 }
-.list-item p strong{
+.list-item p em{
   padding-left: 10px
 }
 .list-item p .num{

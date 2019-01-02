@@ -5,15 +5,19 @@ class RoomsMeta extends Component {
 
 
     renderRoomList = () => {
+        const dictTextColors = {
+            Urban: 'warning',
+            Oxford: 'info',
+            Free: 'light'
+        }
         return this.props.meta.map((room) => {
             return (
                 <li key={room.name}
                     className="list-item play">
                     <p>
-                        <em>{room.name}</em>
-                        <strong>{room.numUsers > 4 ? ' MAX' : null}</strong>
-                        <span className="num">{room.numUsers} {room.numUsers === 1 ? 'player' : 'players'}</span>
-
+                        <strong className={room.name.length > 10 ? 'is-size-7' : null}>{room.name}</strong>
+                        <em className={`has-text-${dictTextColors[room.dictionary]}`}>{room.dictionary}</em>
+                        <span className={`num ${room.numUsers > 4 ? 'has-text-danger anton' : 'anton'}`}>{room.numUsers} <span className="icon"><i class="fas fa-users"></i></span></span>
                         <span onClick={this.props.onClick(room.name)} className="icon has-text-success"><i className="fas fa-sign-in-alt"></i></span>
                     </p>
 
