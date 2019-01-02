@@ -21,28 +21,35 @@ class Hangman extends Component {
             mobileDisplayed: !this.state.mobileDisplayed
         })
     }
+    componentDidUpdate() {
+        if (!this.props.myTurn && this.state.mobileDisplayed) {
+            this.setState({
+                mobileDisplayed: false
+            })
+        }
+    }
     render() {
-        let bodyHeight = document.querySelector('html').clientHeight > 600
+        let bodyHeight = document.querySelector('html').clientHeight > 670
         return (
             <>
                 <div id="svg-container" className="column is-one-fifth is-full-mobile has-text-centered">
                     <ManSVG />
                     <p id="info-text" className="is-size-6 play">
                         {this.props.currentTurn && this.props.master.name && !this.props.isChoosing ? this.props.myTurn ? <span>Your turn, {this.props.user}!</span> : <span>Waiting for {this.props.currentTurn}<Loader scale={.1} /></span> : null}
+                        {!bodyHeight && !this.props.gameOver && this.props.myTurn ?
+                            <button id="small-screen-toggler" onClick={this.changeDisplay} className="button is-dark is-small">
+                                <span className="icon">
+                                    {this.state.mobileDisplayed ? <i className="fas fa-question-circle"></i> : <i className="fas fa-pencil-alt"></i>
+                                    }</span>
+                            </button>
+                            : null}
                     </p>
                 </div>
                 <div id="word-container" className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
                     <WordBlank />
                     {this.props.gameOver ? <Loader scale={.25} /> : !this.state.mobileDisplayed || bodyHeight ? <p id="hint" className="subtitle has-text-dark has-text-centered">{this.props.hint}</p> : null}
                     {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 && (!this.state.mobileDisplayed || bodyHeight) ? <span className="icon"><i class="fas fa-sort-down"></i></span> : null}
-                    {!bodyHeight && !this.props.gameOver ?
-                        <p className="content">
-                            <button onClick={this.changeDisplay} className="button is-dark is-small">
-                                <span className="icon">
-                                    {this.state.mobileDisplayed ? <i className="fas fa-question-circle"></i> : <i className="fas fa-pencil-alt"></i>
-                                    }</span>
-                            </button>
-                        </p> : null}
+
                 </div>
                 <div id="letter-buttons" className="column is-one-quarter is-half-tablet has-text-centered">
                     {this.state.mobileDisplayed || bodyHeight ? <Letters /> : null}
