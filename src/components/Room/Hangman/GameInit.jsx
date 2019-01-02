@@ -15,8 +15,8 @@ class GameInit extends Component {
         if (this.props.word.length > 2) {
             return (
                 <>
-                    <h1 className="title is-4 has-text-dark">Game Over!</h1>
-                    <p className="has-text-dark">The word was {this.props.word}.</p>
+                    <h1 className="title is-4 has-text-dark play">Game Over!</h1>
+                    <p className="has-text-dark play is-size-5">The word was <strong className="has-text-dark">{this.props.word}</strong>.</p>
 
                 </>
             )
@@ -44,9 +44,9 @@ class GameInit extends Component {
                 <div id="word-form-header" className="column is-one-third">
                     <div className="has-text-centered">
                         {this.getHeading()}
-                        <p className="subtitle is-4 has-text-dark">Pick a word, <span className="has-text-primary">{this.props.master.name}</span>.</p>
+                        <p className="subtitle is-4 has-text-dark play">Pick a word, <span className="has-text-primary">{this.props.master.name}</span>.</p>
                         {this.props.Error.exists ? <ErrorMessage /> : this.props.loading ? <Loader scale={.15} /> : <Timer time={this.props.hasFreeDict ? 120 : 60} masterTimer={true} />}
-                        <p className="has-text-danger">{this.props.info}</p>
+                        <p><strong className="has-text-danger">{this.props.info}</strong></p>
                     </div>
                 </div>
 
