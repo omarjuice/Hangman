@@ -14,11 +14,19 @@ const toggleMenu = () => {
 }
 class ChatRoom extends Component {
     componentDidMount() {
+        //--Fixes a display issue in Safari
+        document.querySelector('html').style.display = 'none';
+        setTimeout(() => {
+            document.querySelector('html').style.display = 'block';
+        }, 50)
+        //----------------------
+
         document.querySelector('title').textContent = 'Play | Hangman'
         document.getElementById('css-load').setAttribute('href', process.env.PUBLIC_URL + '/chatStyle.css')
         if (!this.props.room) {
             return history.push('/Hangman')
         }
+
         this.props.newMasterListener()
         this.props.wordSetListener()
         animate.turnOn('.screen')
