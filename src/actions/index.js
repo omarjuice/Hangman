@@ -21,8 +21,8 @@ import {
 import history from '../history';
 ;
 // Types not declared in 'types.js' are dummies for uniformity with redux
-const socket = io('http://localhost:3001/')
-// const socket = io('https://hangman-oj.herokuapp.com/')
+// const socket = io('http://localhost:3001/')
+const socket = io('https://hangman-oj.herokuapp.com/')
 
 export const bootServer = () => dispatch => {
     dispatch({
@@ -30,8 +30,8 @@ export const bootServer = () => dispatch => {
     })
 
     var request = new XMLHttpRequest();
-    request.open('GET', 'http://localhost:3001/', true);
-    // request.open('GET', 'https://hangman-oj.herokuapp.com/', true);
+    // request.open('GET', 'http://localhost:3001/', true);
+    request.open('GET', 'https://hangman-oj.herokuapp.com/', true);
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {

@@ -41,7 +41,7 @@ class Hangman extends Component {
                     {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 && (!this.state.mobileDisplayed || bodyHeight) ? <span className="icon"><i class="fas fa-sort-down"></i></span> : null}
                     {!bodyHeight && !this.props.gameOver ?
                         <p className="content">
-                            <button onClick={this.changeDisplay} className="button is-dark">
+                            <button onClick={this.changeDisplay} className="button is-dark is-small">
                                 <span className="icon">
                                     {this.state.mobileDisplayed ? <i className="fas fa-question-circle"></i> : <i className="fas fa-pencil-alt"></i>
                                     }</span>
