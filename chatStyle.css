@@ -378,6 +378,9 @@
         position: relative;
         top: -9vh
     }
+    #letter-buttons{
+        margin-top: -15%;
+    }
 }
 
 @media only screen 
