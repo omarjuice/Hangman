@@ -198,7 +198,6 @@ export const errorListener = () => dispatch => {
     })
 }
 export const cancelError = () => dispatch => {
-    console.log('canceled');
     dispatch({
         type: ERROR,
         error: {

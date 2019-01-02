@@ -15,9 +15,6 @@ class Hangman extends Component {
     componentDidMount() {
         this.props.nextTurnListener()
         animate.changeScreen('.screen')
-        if (document.getElementById('hint')) {
-            console.log(this.props.hint.length)
-        }
     }
     changeDisplay = () => {
         this.setState({
@@ -26,7 +23,6 @@ class Hangman extends Component {
     }
     render() {
         let bodyHeight = document.querySelector('html').clientHeight > 600
-        console.log(bodyHeight);
         return (
             <>
                 <div id="svg-container" className="column is-one-fifth is-full-mobile has-text-centered">

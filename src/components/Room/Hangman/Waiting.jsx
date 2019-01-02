@@ -14,7 +14,6 @@ class Waiting extends Component {
     }
     render() {
         let clientWidth = document.querySelector('body').clientWidth
-        console.log(clientWidth);
         return (
             <>
                 <div className="column is-one-fifth is-full-mobile has-text-centered">

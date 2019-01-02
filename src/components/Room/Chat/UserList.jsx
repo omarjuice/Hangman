@@ -5,7 +5,6 @@ import { updateUserListener } from '../../../actions';
 class UserList extends Component {
     componentDidMount() {
         this.props.updateUserListener()
-        console.log(this.props.dictionary)
     }
     renderUsers = () => {
         let highestScore = this.props.users.reduce((a, b) => b.score > a.score ? b : b.score === a.score ? { name: '', score: b.score } : a, { name: '', score: -1 }).name

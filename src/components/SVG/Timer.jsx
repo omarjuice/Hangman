@@ -44,9 +44,7 @@ class Timer extends Component {
             if (this.state.time === 0) {
                 try {
                     document.querySelector('.timer').style.opacity = 1
-                } catch (e) {
-                    console.log(e);
-                }
+                } catch (e) { }
                 clearInterval(this.state.timer)
                 this.setState({
                     timer: null,
