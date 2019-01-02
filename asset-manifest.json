@@ -1,11 +1,11 @@
 {
-  "main.js": "/Hangman/static/js/main.7d3a4b4f.chunk.js",
-  "main.js.map": "/Hangman/static/js/main.7d3a4b4f.chunk.js.map",
+  "main.js": "/Hangman/static/js/main.e44570d1.chunk.js",
+  "main.js.map": "/Hangman/static/js/main.e44570d1.chunk.js.map",
   "static/js/1.aa36077b.chunk.js": "/Hangman/static/js/1.aa36077b.chunk.js",
   "static/js/1.aa36077b.chunk.js.map": "/Hangman/static/js/1.aa36077b.chunk.js.map",
   "runtime~main.js": "/Hangman/static/js/runtime~main.ae1caf01.js",
   "runtime~main.js.map": "/Hangman/static/js/runtime~main.ae1caf01.js.map",
   "index.html": "/Hangman/index.html",
-  "precache-manifest.42559c290dcc9121bb9c49d447ab5fd6.js": "/Hangman/precache-manifest.42559c290dcc9121bb9c49d447ab5fd6.js",
+  "precache-manifest.81df5bf05276e9ef8bae3439d1dc6a89.js": "/Hangman/precache-manifest.81df5bf05276e9ef8bae3439d1dc6a89.js",
   "service-worker.js": "/Hangman/service-worker.js"
 }
