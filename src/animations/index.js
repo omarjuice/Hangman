@@ -84,7 +84,7 @@ export const hangmanAnimation = {
         })
     },
     flicker: (elem) => {
-        const opacityValues = Array(20).fill('x').map((e, i) => i % 2 === 0 ? .95 : 1)
+        const opacityValues = Array(20).fill('x').map((e, i) => i % 2 === 0 ? .975 : 1)
         return anime({
             targets: elem,
             opacity: opacityValues,

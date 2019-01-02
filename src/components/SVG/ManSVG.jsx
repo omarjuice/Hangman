@@ -55,8 +55,8 @@ class ManSVG extends Component {
                 <g id="body">
                     <g id="head">
                         <circle cx="100" cy="35" r="20" stroke="black" strokeWidth="4" fill="white" />
-                        <circle cx="93" cy="30.099999999999998" r="1" stroke="black" strokeWidth="4" fill="black" />
-                        <circle cx="106.9999995" cy="30.099999999999998" r="1" stroke="black" strokeWidth="4" fill="black" />
+                        <circle cx="93" cy="31" r="1.5" stroke="black" strokeWidth="4" fill="black" />
+                        <circle cx="106.9999995" cy="31" r="1.5" stroke="black" strokeWidth="4" fill="black" />
                     </g>
                     <line x1="100" y1="55.00000000000001" x2="100" y2="105" stroke="black" strokeWidth="4" />
                     <g id="legs">

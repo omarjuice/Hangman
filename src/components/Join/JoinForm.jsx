@@ -38,7 +38,7 @@ class JoinForm extends Component {
                     </div>
                 </div>
                 <div className="control has-text-centered">
-                    <button className="button is-dark is-large"><span className="icon"><i className="fas fa-dungeon fa-2x"></i></span></button>
+                    <button className="button is-dark is-large"><span className="icon"><img src={process.env.PUBLIC_URL + '/images/hangmanLogo.svg'} alt="" srcset="" /></span></button>
                 </div>
             </form>
         );
