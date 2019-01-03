@@ -24,6 +24,10 @@ class GameInit extends Component {
     }
 
     onSubmit = (formValues) => {
+        formValues.word = formValues.word.trim();
+        if (formValues.hint) {
+            formValues.hint = formValues.hint.trim()
+        }
         this.props.newWord(formValues)
     }
     renderInput = ({ input, autoFocus, label, meta }) => {
@@ -68,7 +72,14 @@ const validate = ({ word, hint }) => {
 
     const errors = {}
     let regex = /[^a-z]/gi
-    if (!word) {
+    if (word) {
+        word = word.trim()
+    }
+    if (hint) {
+        hint = hint.trim()
+    }
+
+    if (!word || word.length < 1) {
         errors.word = 'You must enter a word'
     }
     if (word && word.length < 3) {
@@ -77,7 +88,7 @@ const validate = ({ word, hint }) => {
     if (word && regex.test(word)) {
         errors.word = 'Must only contain letters'
     }
-    if (!hint) {
+    if (!hint || hint.length < 1) {
         errors.hint = 'You must enter a hint'
     }
     return errors

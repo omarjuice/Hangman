@@ -21,7 +21,8 @@ class JoinForm extends Component {
         )
     }
     onSubmit = ({ name, room }) => {
-        room = room.toUpperCase()
+        room = room.toUpperCase().trim()
+        name = name.trim()
         this.props.initiateJoin({ name, room })
     }
     render() {
@@ -48,11 +49,23 @@ class JoinForm extends Component {
 const validate = ({ name, room }) => {
     const regex = /\W+/g
     const errors = {}
+
+    if (name) {
+        name = name.trim()
+    }
+    if (room) {
+        room = room.trim()
+    }
+
     if (!name || name.length < 1) {
         errors.name = "Name Required"
     }
+    if (!room || room.length < 1) {
+        errors.room = "Room Required"
+    }
+
     if (name && regex.test(name)) {
-        errors.name = "Invalid Name"
+        errors.name = "Invalid Name";
     }
     if (name && name.length > 10) {
         errors.name = "Name too Long"
@@ -69,6 +82,7 @@ const validate = ({ name, room }) => {
     if (room && room.length > 12) {
         errors.room = "Room name too long"
     }
+
 
     return errors
 }
