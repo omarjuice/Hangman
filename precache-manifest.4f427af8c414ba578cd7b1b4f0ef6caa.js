@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/Hangman/static/js/1.aa36077b.chunk.js"
   },
   {
-    "revision": "8bb54fe9e13d6f55481e0a6907653ea5",
+    "revision": "f2f850ffb83053da27d51de584e5720c",
     "url": "/Hangman/index.html"
   }
 ];
