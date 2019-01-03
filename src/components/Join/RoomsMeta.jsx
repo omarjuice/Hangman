@@ -17,7 +17,7 @@ class RoomsMeta extends Component {
                     <p>
                         <strong className={room.name.length > 10 ? 'is-size-7' : null}>{room.name}</strong>
                         <em className={`has-text-${dictTextColors[room.dictionary]}`}>{room.dictionary}</em>
-                        <span className={`num ${room.numUsers > 4 ? 'has-text-danger anton' : 'anton'}`}>{room.numUsers} <span className="icon"><i class="fas fa-users"></i></span></span>
+                        <span className={`num ${room.numUsers > 4 ? 'has-text-danger anton' : 'anton'}`}>{room.numUsers} <span className="icon"><i className="fas fa-users"></i></span></span>
                         <span onClick={this.props.onClick(room.name)} className="icon has-text-success"><i className="fas fa-sign-in-alt"></i></span>
                     </p>
 

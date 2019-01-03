@@ -48,7 +48,7 @@ class Hangman extends Component {
                 <div id="word-container" className="column is-half has-text-centered is-two-thirds-tablet is-full-mobile">
                     <WordBlank />
                     {this.props.gameOver ? <Loader scale={.25} /> : !this.state.mobileDisplayed || bodyHeight ? <p id="hint" className="subtitle has-text-dark has-text-centered">{this.props.hint}</p> : null}
-                    {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 && (!this.state.mobileDisplayed || bodyHeight) ? <span className="icon"><i class="fas fa-sort-down"></i></span> : null}
+                    {this.props.hint && !this.props.gameOver && this.props.hint.length > 90 && (!this.state.mobileDisplayed || bodyHeight) ? <span className="icon"><i className="fas fa-sort-down"></i></span> : null}
 
                 </div>
                 <div id="letter-buttons" className="column is-one-quarter is-half-tablet has-text-centered">
