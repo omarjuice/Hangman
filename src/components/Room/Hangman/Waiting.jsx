@@ -7,7 +7,6 @@ import { hangmanAnimation as animate } from '../../../animations';
 
 class Waiting extends Component {
     componentDidMount() {
-        animate.turnOn('.screen')
         animate.changeScreen('.screen')
 
 

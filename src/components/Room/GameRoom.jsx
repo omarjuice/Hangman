@@ -30,7 +30,8 @@ class ChatRoom extends Component {
         this.props.newMasterListener()
         this.props.wordSetListener()
         animate.turnOn('.screen')
-        animate.flicker('.screen')
+        // animate.flicker('.screen')
+        //flicker effect for crt screen. removed for accessibility
     }
     render() {
         return (

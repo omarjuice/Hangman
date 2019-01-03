@@ -74,13 +74,13 @@ export const hangmanAnimation = {
         return anime({
             targets: elem,
             scaleY: [{ value: ['*=.1', 1], duration: 1500, elasticity: 0 }],
-            opacity: [{ value: ['*=.1', 1], delay: 500, duration: 1500, elasticity: 1000 }]
+            // opacity: [{ value: ['*=.1', 1], delay: 500, duration: 1500, elasticity: 1000 }]
         })
     },
     changeScreen: (elem) => {
         return anime({
             targets: elem,
-            opacity: [{ value: ['*=.75', 1], duration: 2000, elasticity: 1000 }]
+            opacity: [{ value: ['*=.75', 1], duration: 2000, elasticity: 500 }]
         })
     },
     flicker: (elem) => {
@@ -135,7 +135,8 @@ export const hangmanAnimation = {
             duration: 500,
             easing: 'easeInOutBack'
         })
-    }
+    },
+
 
 }
 export const chatAnimation = {
@@ -201,6 +202,33 @@ export const svgAnimation = {
             easing: 'linear',
             autoplay: true,
             loop: false
+        })
+    },
+    draw: (elems) => {
+        return anime({
+            targets: elems,
+            opacity: { value: 1, duration: 1000 },
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 1500,
+            delay: function (el, i) { return i * 250 },
+        })
+    },
+    eyeBlink: (elems) => {
+        return anime({
+            targets: elems,
+            ry: [0, 1.5],
+            easing: 'easeOutQuad',
+            duration: 1000,
+
+        })
+    },
+    eyeMovement: (elems) => {
+        return anime({
+            targets: elems,
+            cy: [31, 37],
+            easing: 'linear',
+            duration: 750,
         })
     }
 }
