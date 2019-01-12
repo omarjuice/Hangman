@@ -4,6 +4,9 @@
 .play{
     font-family:  'Play', sans-serif
 }
+::-webkit-scrollbar {
+   display: none 
+}
 #user-list{
     position: fixed;
     left: 0%;
@@ -43,6 +46,8 @@
     z-index: 0;
     padding: 0;
     overflow: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
     -webkit-overflow-scrolling: touch
 }
 #waiting-text{
@@ -126,6 +131,8 @@
     height: 100px;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
     margin-bottom: 0
 }
 .messages-container{
@@ -136,6 +143,8 @@
     width: 75%;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  
+    overflow: -moz-scrollbars-none;
     height: 60%;
     z-index: 1;
     border-radius: none;
