@@ -42,7 +42,7 @@ class JoinPage extends Component {
 
                     {/* <h1 id="title" className="title is-1 anton has-text-white glitch" datatext="HANGMAN">HANGM<i className="fas fa-male"></i>N</h1> */}
                     <Title componentId="title" text={`HANGMAN`} colors={{ primary: 'white', secondary: '#3D9100', tertiary: '#C26EFF' }} />
-                    {this.props.loading ? <> <span className="play">Requesting Server</span><Loader scale={.15} color='white' /> </> : null}
+                    <div className={this.props.loading ? '' : 'is-invisible'}> <span className="play">Requesting Server</span><Loader scale={.15} color='white' /> </div>
                     {this.props.error.exists ? <ErrorMessage /> : <RoomsMeta onClick={this.onRoomClick.bind(this)} />}
 
                     <div className="box noise">
