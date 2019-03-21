@@ -52,6 +52,7 @@ class Chat extends Component {
     }
     toggleChat = () => {
         document.querySelector('.messages-container').classList.toggle('is-active');
+        document.querySelector('#message-form').classList.toggle('is-active')
         document.querySelector('.fa-comment').classList.remove('new')
         document.querySelector('.navbar-burger').classList.remove('is-active')
         document.querySelector('#user-list').classList.remove('is-active')

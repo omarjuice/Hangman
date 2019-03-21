@@ -220,7 +220,8 @@
     width: 80%;
     bottom: 0%;
     z-index: 5;
-    background-color: rgba(0, 0, 255, 0.05)
+    background-color: rgba(0, 0, 255, 0.05);
+    padding: 10px;
 }
 .bold{
     font-weight: bold
@@ -293,7 +294,11 @@
     }
     #message-form{
         width: 100%;
-        bottom: -2%;
+        display: none
+    }
+    #message-form.is-active{
+        display: block;
+        z-index: 10;
     }
     #user-list{
         display: none;
@@ -315,7 +320,7 @@
     }
     #hangman{
         left: 0;
-        height: 89%
+        height: 100%
     }
     .messages-container{
         width: 100%;
@@ -326,6 +331,7 @@
         display: block;
         z-index: 6;
     }
+
     #hangman-svg{
         height: 40%;
         width: 40%;
@@ -359,10 +365,9 @@
     }
     #word-container{
         position: relative;
-        top: -6vh
     }
     #letter-buttons{
-        margin-top: -10%
+        margin-top: -5%
     }
 }
 
@@ -371,10 +376,7 @@
         top: -9vh
     }
     #letter-buttons{
-        margin-top: -20%;
-    }
-    #message-form{
-        bottom: -3%
+        margin-top: -10%;
     }
 }
 @media only screen 
@@ -395,8 +397,8 @@ and (max-width: 991px){
     .messages-container{
         height: 40%;
         top: 50%;
-        
     }
+    
     #hangman-svg{
         position: absolute;
         left: 0;

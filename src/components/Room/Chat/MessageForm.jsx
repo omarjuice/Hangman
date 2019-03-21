@@ -14,7 +14,7 @@ class MessageForm extends Component {
     }
     render() {
         return (
-            <form id="message-form" className="form box" action="" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <form id="message-form" className="form box has-background-grey" action="" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <div id="message-send" className="columns is-mobile is-centered is-gapless">
                     <div className="column is-10">
                         <Field name="text" component={this.renderInput} id="message-input" />
