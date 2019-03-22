@@ -137,7 +137,7 @@
 }
 .messages-container{
     position: fixed;
-    top: 30%;
+    bottom: 32px;
     margin: 0px 0%;
     margin-bottom: 10%;
     width: 75%;
@@ -145,7 +145,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;  
     overflow: -moz-scrollbars-none;
-    height: 60%;
+    height: 65%;
     z-index: 1;
     border-radius: none;
 
@@ -325,7 +325,9 @@
     .messages-container{
         width: 100%;
         display: none;
-        
+        height: 60%;
+       
+
     }
     .messages-container.is-active{
         display: block;
